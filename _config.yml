@@ -1,0 +1,13 @@
+markdown: rdiscount
+permalink: /:title.html
+auto: true
+exclude:
+  - Rakefile
+  - Gemfile
+  - .gitignore
+author: Mohammed Lakkadshaw
+email: me@mohammedlakkadshaw.com
+web: mohammedlakkadshaw.com
+twitter: m_lakkadshaw
+github: mlakkadshaw
+linkedin: mlakkadshaw
