@@ -1,8 +1,8 @@
 ---
-Title: The Waterfall Model
+title: The Waterfall Model
 layout: post
----
 
+---
 This is a sequential Design model in which the flow is downward, there is no upward flow in this model, the diffrent phases of waterfall model are as follow:
 	
 	Problem Definition
