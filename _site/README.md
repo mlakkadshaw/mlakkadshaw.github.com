@@ -1,4 +1,4 @@
-mlakkadshaw-github.com
+My Blog
 ======================
 
-Blog
+I guess the title explains it all.
