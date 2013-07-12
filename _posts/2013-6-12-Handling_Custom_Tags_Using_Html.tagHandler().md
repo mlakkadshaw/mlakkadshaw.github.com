@@ -1,3 +1,7 @@
+layout: post
+title: Handling custom tags in Android using Html.TagHandler()
+--
+
 #Handling custom tags using Html.TagHandler()
 
 ---
