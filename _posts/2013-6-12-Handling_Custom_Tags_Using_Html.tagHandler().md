@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Handling custom tags in Android using Html.TagHandler()
-
 ---
-
-#Handling custom tags using Html.TagHandler()
 
 While working on my app [Android app Ken](https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&hl=en), I needed to render HTML in Android, I was very much delighted when I found out that android's TextView supports HTML rendering and it can be easily achived by converting html into [Spannable](http://developer.android.com/reference/android/text/Spannable.html) using **Html.fromHtml(<html_Content)** method and sending it to TextView's setText method.
 > TextView myTxt = (TextView)findViewById(R.id.textView);
