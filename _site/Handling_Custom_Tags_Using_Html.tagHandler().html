@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Use your Android Phone as a display for Raspberrypi</title>
+   <title>Handling custom tags in Android using Html.TagHandler()</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -72,7 +72,7 @@
             <article>
   <header>
     <h2>
-      <a href="/Android_as_display.html" rel="bookmark" title="Permanent link to ">Use your Android Phone as a display for Raspberrypi</a>
+      <a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html" rel="bookmark" title="Permanent link to ">Handling custom tags in Android using Html.TagHandler()</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -82,42 +82,37 @@
 		width="40"
 		height="40">
         </avatar -->
-        <time>December 31, 2012</time> - 
+        <time>June 12, 2013</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
 
-  <p /><br /><p /><p>I read this tutorial on how to use your Kindle as a display for your Raspberrypi <a href="http://www.ponnuki.net/2012/09/kindleberry-pi/">link</a>, and I thought why not use an Android phone as display and use usb ports on the Raspberry Pi for keyboard and mouse.</p>
+  <p /><br /><p /><h1>Handling custom tags using Html.TagHandler()</h1>
 
-<p>Things you'll need:</p>
+<hr />
 
-<ol>
-<li>Android phone</li>
-<li>A Raspberry pi</li>
-</ol>
+<p>While working on my app <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Android app Ken</a>, I needed to render HTML in Android, I was very much delighted when I found out that android's TextView supports HTML rendering and it can be easily achived by converting html into <a href="http://developer.android.com/reference/android/text/Spannable.html">Spannable</a> using <strong>Html.fromHtml(&lt;html_Content)</strong> method and sending it to TextView's setText method.</p>
 
+<blockquote><p>TextView myTxt = (TextView)findViewById(R.id.textView);
+myTxt.setText(Html.fromHtml(htmlContent,ImageHandler,TagHandler));</p></blockquote>
 
-<p>What we'll do:</p>
+<p>But there is catch with Html.fromHtml method, it doesn't support all tags; well that was a killjoy, but html.fromHtml method accpets a TagHandler which is class we can implement to handle custom html tags, but it is not well documented, after struggling for a while and reading the source code of HTML class method I was finally able to define my own tagHandler class which is able to handle ul, ol and code tags.</p>
 
-<ol>
-<li>We will install VNC on Android, I am using pocketvnc</li>
-<li>Then, we will use USB tethering on Android and connect it to Raspberry pi using USB</li>
-<li>Then in the Raspberry pi we will install x11vnc <strong>(sudo apt-get install x11vnc)</strong> so that we can connect to an exisiting X-Window server and share it using vnc, so that we can use keyboard and mouse connected to raspberry pi.</li>
-<li>Change the ip address of raspbery pi <strong>sudo ifconfig usb0 192.168.42.10</strong> (Because android assing IP in USB tether mode in the range 192.168.42.x)</li>
-<li>Start the X-Server (if you have not started it alerady) using the  <strong><em>startx</em></strong> command.</li>
-<li>The share it using x11vnc, type the following command in the terminal: ***sudo x11vnc -display : 0</li>
-<li>Then connect to your raspberry pi to Android using the VNC software you have downloaded: port 5900 and IP 192.168.42.10</li>
-</ol>
+<h2>Handling Html</h2>
+
+<p>Here is my custom Github custom tagHandler:</p>
+
+<script src="https://gist.github.com/mlakkadshaw/5983704.js"></script>
 
 
-<p>I know it is not very detialed tutorial and a bit crude, I will soon post a detialed one with images and video.
-Also we could automate a lot stuff on startup using .bash_profile so that we don't have to type in these commands everytime.
-I'll post all this in the next update.</p>
+<p>The above Java file HtmlTagHandler handles, ul, ol, and code tags.
+The <strong>handleTagList()</strong> method handles the list tags, and handling of code tag was pretty easy, I just need to find the start of the code tag, I do this by adding a flag on the start of the tag <strong>Spannable.SPAN_MARK_MARK</strong> and when the tag on end I just find the object where I marked <strong>Spannable.SPAN_MARK_MARK</strong> using <strong>getLast()</strong> and find its position, and store it in the variable name <strong>"where"</strong>; that's the start of the code tag, and I get the end of the code tag using output.length() and set the font face of that text fragment to "monospace" using <strong>(new TypefaceSpan("monospace")</strong>.</p>
 
-<p>I would love to hear about you suggestions in the comments.
-Thanks</p>
+<p>That's it! If you want to use it in your project create a java class with content of this file and create a object of HtmlTagHandler and pass it to your fromHtml method.</p>
 
-<p>(Please excuse the typos, I am very excited about this and I want to post it online ASAP, so I am not profreading it.)</p>
+<p>Also try out my app <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Ken which is available on Google Play</a> which a free magazine for programmers, you have to select your interest (e.g Javascript, Android, Ruby etc.) and it will show you all the latest news, articles, tutorials related to your interests.</p>
+
+<p>P.S: For handling image I using a nice library called <strong>"URLImageParser"</strong> <a href="https://gist.github.com/Antarix/4167655">Github link</a></p>
 
 
 <div class="well">
@@ -125,9 +120,9 @@ Thanks</p>
     <h3>Related Posts</h3>
     <ul class="posts">
       
-        <p><li><span>12 Jun 2013</span> - <a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></li></p>
-      
         <p><li><span>13 Jan 2013</span> - <a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></li></p>
+      
+        <p><li><span>31 Dec 2012</span> - <a href="/Android_as_display.html">Use your Android Phone as a display for Raspberrypi</a></li></p>
       
     </ul>
   </nav>
