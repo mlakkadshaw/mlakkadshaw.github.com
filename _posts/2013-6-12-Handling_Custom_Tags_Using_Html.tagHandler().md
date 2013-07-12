@@ -4,15 +4,16 @@ title: Handling custom tags in Android using Html.TagHandler()
 ---
 
 While working on my app [Android app Ken](https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&hl=en), I needed to render HTML in Android, I was very much delighted when I found out that android's TextView supports HTML rendering and it can be easily achived by converting html into [Spannable](http://developer.android.com/reference/android/text/Spannable.html) using **Html.fromHtml(<html_Content)** method and sending it to TextView's setText method.
-> TextView myTxt = (TextView)findViewById(R.id.textView);
-> myTxt.setText(Html.fromHtml(htmlContent,ImageHandler,TagHandler));
+   
+    TextView myTxt = (TextView)findViewById(R.id.textView);
+    myTxt.setText(Html.fromHtml(htmlContent,ImageHandler,TagHandler));
 
 
 But there is catch with Html.fromHtml method, it doesn't support all tags; well that was a killjoy, but html.fromHtml method accpets a TagHandler which is class we can implement to handle custom html tags, but it is not well documented, after struggling for a while and reading the source code of HTML class method I was finally able to define my own tagHandler class which is able to handle ul, ol and code tags.
 
 ## Handling Html
 
-Here is my custom Github custom tagHandler:
+Here is my custom tagHandler:
 <script src="https://gist.github.com/mlakkadshaw/5983704.js"></script>
 
 The above Java file HtmlTagHandler handles, ul, ol, and code tags. 
