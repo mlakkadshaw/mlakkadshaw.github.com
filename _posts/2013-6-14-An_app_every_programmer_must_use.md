@@ -10,3 +10,5 @@ But there is no solution available to get all this information in one place, so 
 It is an Android app which keeps you updated with the latest programming news, you have to select your interests e.g: Node, Python, Javascript, Android etc. and it will show you all the latest news related to these technologies.
 
 Ken is tool which I needed badly and I think a lot of other people can benefit from it, so if you are having the same problem which I had: [Try Ken](https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&hl=en)
+
+[Download from Google Play](https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&hl=en)
