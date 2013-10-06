@@ -87,21 +87,21 @@
     </h5>
   </header>
 
-  <p /><br /><p /><p>Before starting my latest web-development project I was looking for some robust javascript frameworks that could do the job. I was familiar with AngularJS and I loved it, but it lacked a lot of utility methods and I was looking for some solution to solve that problem. Over the year I have created my own tool-belt of utility methods, but that was a bloated and ineffective solution.</p>
+  <p /><br /><p /><p>Before starting my latest web-development project I was looking for some robust javascript frameworks that I could use. I was familiar with AngularJS and I loved it, but it doesn't have a lot of utility methods and I was looking for some solution to solve that problem.</p>
 
-<p>You want a powerful web-development, combine angularJS + underscoreJS and you got yourself a monster, in this blog post I will illustrate the powerful features of angularJS and very useful methods present in underscoreJS and how you can combine the two.</p>
+<p>So, I thought about using underscoreJS, which is collection of utility methods with angularJS and I got myself a killer web development toolkit, in this blog post I have summed up underscoreJS methods which I find useful. visit <a href="http://underscorejs.org/#">underscorejs.org</a> to view all the available methods.</p>
 
 <h2>Using Underscore with Angular:</h2>
 
 <p>Combining angular and underscore is pretty straightforward, want you can do it add import underscore in your index.html, then add it as a service.</p>
 
-<pre><code>var underscore = angular.module('underscore', []);
-underscore.factory('_', function() {
-    return window._; // assumes underscore has already been loaded on the page
-});  
-</code></pre>
+<script src="https://gist.github.com/mlakkadshaw/6850612.js"></script>
 
-<p>or directly use the $window service and call underscore.</p>
+
+<p>And then we could inject it into our controllers:</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6850655.js"></script>
+
 
 <h2>Useful Underscore methods:</h2>
 
@@ -129,23 +129,37 @@ output: ---&gt; {"model":"N/A", "N/A": "Ford", "price": "0"}
 
 <h3>_.where:</h3>
 
-<p>This method comes handy when you want to search something in the array of objects using some attributes present in the object.</p>
+<p>This method comes handy when you want to search something in the array of objects using some attributes present in the object.
+consider the example below.</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6850250.js"></script>
+
 
 <h3>_.uniq:</h3>
 
-<p>This method operates on arrays, and it removes duplicates in the array.</p>
+<p>This method operates on arrays, and it removes duplicates in the array.
+Consider the following example:</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6850524.js"></script>
+
 
 <h3>_.pluck:</h3>
 
-<h3>_.groupBy</h3>
+<p>if you ever wanted to extract some values from an array of objects, well the pluck method let's to do that.
+Here is the example:</p>
 
-<p>By merging these two awesome web development frameworks together we can get a pretty nice web development experience, as angular serves as an awesome MVC, and underscore provides a very useful collection of utility methods, which you can also use elsewhere such as you Node.JS server.</p>
+<script src="https://gist.github.com/mlakkadshaw/6bc81a35e33dbcfcc1bc.js"></script>
+
+
+<p>By merging these two awesome web development frameworks together we can get a pretty nice web development experience, as angular serves as an awesome MVC, and underscore provides a very useful collection of utility methods.</p>
 
 
 <div class="well">
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
+      
+        <p><li><span>03 Aug 2013</span> - <a href="/Executing_tasks_on_specific_dates_nodejs.html">Executing tasks (functions) on specific dates in Node.js</a></li></p>
       
         <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
       
@@ -200,6 +214,8 @@ output: ---&gt; {"model":"N/A", "N/A": "Ford", "price": "0"}
             <h3>Recent Posts</h3>
             <hr />
             <div id="posts">
+              
+                <p><a href="/Executing_tasks_on_specific_dates_nodejs.html">Executing tasks (functions) on specific dates in Node.js</a></p>
               
                 <p><a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></p>
               
