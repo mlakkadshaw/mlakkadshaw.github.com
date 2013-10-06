@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Use your Android Phone as a display for Raspberrypi</title>
+   <title>AngularJS + Underscore The ultimate web-development toolkit</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -72,7 +72,7 @@
             <article>
   <header>
     <h2>
-      <a href="/Android_as_display.html" rel="bookmark" title="Permanent link to ">Use your Android Phone as a display for Raspberrypi</a>
+      <a href="/AngularJS_Underscore_ultimate_web_development.html" rel="bookmark" title="Permanent link to ">AngularJS + Underscore The ultimate web-development toolkit</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -82,42 +82,64 @@
 		width="40"
 		height="40">
         </avatar -->
-        <time>December 31, 2012</time> - 
+        <time>August  2, 2013</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
 
-  <p /><br /><p /><p>I read this tutorial on how to use your Kindle as a display for your Raspberrypi <a href="http://www.ponnuki.net/2012/09/kindleberry-pi/">link</a>, and I thought why not use an Android phone as display and use usb ports on the Raspberry Pi for keyboard and mouse.</p>
+  <p /><br /><p /><p>Before starting my latest web-development project I was looking for some robust javascript frameworks that could do the job. I was familiar with AngularJS and I loved it, but it lacked a lot of utility methods and I was looking for some solution to solve that problem. Over the year I have created my own tool-belt of utility methods, but that was a bloated and ineffective solution.</p>
 
-<p>Things you'll need:</p>
+<p>You want a powerful web-development, combine angularJS + underscoreJS and you got yourself a monster, in this blog post I will illustrate the powerful features of angularJS and very useful methods present in underscoreJS and how you can combine the two.</p>
 
-<ol>
-<li>Android phone</li>
-<li>A Raspberry pi</li>
-</ol>
+<h2>Using Underscore with Angular:</h2>
 
+<p>Combining angular and underscore is pretty straightforward, want you can do it add import underscore in your index.html, then add it as a service.</p>
 
-<p>What we'll do:</p>
+<pre><code>var underscore = angular.module('underscore', []);
+underscore.factory('_', function() {
+    return window._; // assumes underscore has already been loaded on the page
+});  
+</code></pre>
 
-<ol>
-<li>We will install VNC on Android, I am using pocketvnc</li>
-<li>Then, we will use USB tethering on Android and connect it to Raspberry pi using USB</li>
-<li>Then in the Raspberry pi we will install x11vnc <strong>(sudo apt-get install x11vnc)</strong> so that we can connect to an exisiting X-Window server and share it using vnc, so that we can use keyboard and mouse connected to raspberry pi.</li>
-<li>Change the ip address of raspbery pi <strong>sudo ifconfig usb0 192.168.42.10</strong> (Because android assing IP in USB tether mode in the range 192.168.42.x)</li>
-<li>Start the X-Server (if you have not started it alerady) using the  <strong><em>startx</em></strong> command.</li>
-<li>The share it using x11vnc, type the following command in the terminal: ***sudo x11vnc -display : 0</li>
-<li>Then connect to your raspberry pi to Android using the VNC software you have downloaded: port 5900 and IP 192.168.42.10</li>
-</ol>
+<p>or directly use the $window service and call underscore.</p>
 
+<h2>Useful Underscore methods:</h2>
 
-<p>I know it is not very detialed tutorial and a bit crude, I will soon post a detialed one with images and video.
-Also we could automate a lot stuff on startup using .bash_profile so that we don't have to type in these commands everytime.
-I'll post all this in the next update.</p>
+<p>I have compiled a list of my favourite underscoreJS methods, you can always visit <a href="http://underscorejs.org/">underscorejs.org</a> to view all the methods that are available in underscore.</p>
 
-<p>I would love to hear about you suggestions in the comments.
-Thanks</p>
+<h3>_.isUndefined:</h3>
 
-<p>(Please excuse the typos, I am very excited about this and I want to post it online ASAP, so I am not profreading it.)</p>
+<p>This method is used to determine weather the specified value is undefined or not, I know you could always do <strong>typeof value === "undefined"</strong> to check weather it is undefined or not, but I find this neater.</p>
+
+<pre><code>    _.isUndefined(value)
+</code></pre>
+
+<h3>_.defaults:</h3>
+
+<p>This is also a very useful method, it allows you define a default values for something if they are not present.</p>
+
+<pre><code>var data = {"model":"T", "manufacturer": "Ford", "price": "200"};
+_.defaults(data, {"model":"N/A", "N/A": "Ford", "price": "0"})
+
+output: ---&gt; {"model":"T", "manufacturer": "Ford", "price": "200"}
+
+_.defaults({},{"model":"N/A", "N/A": "Ford", "price": "0"}) 
+output: ---&gt; {"model":"N/A", "N/A": "Ford", "price": "0"}
+</code></pre>
+
+<h3>_.where:</h3>
+
+<p>This method comes handy when you want to search something in the array of objects using some attributes present in the object.</p>
+
+<h3>_.uniq:</h3>
+
+<p>This method operates on arrays, and it removes duplicates in the array.</p>
+
+<h3>_.pluck:</h3>
+
+<h3>_.groupBy</h3>
+
+<p>By merging these two awesome web development frameworks together we can get a pretty nice web development experience, as angular serves as an awesome MVC, and underscore provides a very useful collection of utility methods, which you can also use elsewhere such as you Node.JS server.</p>
 
 
 <div class="well">
@@ -125,13 +147,13 @@ Thanks</p>
     <h3>Related Posts</h3>
     <ul class="posts">
       
-        <p><li><span>02 Aug 2013</span> - <a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
-      
         <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
       
         <p><li><span>12 Jun 2013</span> - <a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></li></p>
       
         <p><li><span>13 Jan 2013</span> - <a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></li></p>
+      
+        <p><li><span>31 Dec 2012</span> - <a href="/Android_as_display.html">Use your Android Phone as a display for Raspberrypi</a></li></p>
       
     </ul>
   </nav>

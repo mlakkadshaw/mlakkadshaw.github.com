@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Use your Android Phone as a display for Raspberrypi</title>
+   <title>An app every programmer must use</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -72,7 +72,7 @@
             <article>
   <header>
     <h2>
-      <a href="/Android_as_display.html" rel="bookmark" title="Permanent link to ">Use your Android Phone as a display for Raspberrypi</a>
+      <a href="/An_app_every_programmer_must_use.html" rel="bookmark" title="Permanent link to ">An app every programmer must use</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -82,42 +82,20 @@
 		width="40"
 		height="40">
         </avatar -->
-        <time>December 31, 2012</time> - 
+        <time>June 14, 2013</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
 
-  <p /><br /><p /><p>I read this tutorial on how to use your Kindle as a display for your Raspberrypi <a href="http://www.ponnuki.net/2012/09/kindleberry-pi/">link</a>, and I thought why not use an Android phone as display and use usb ports on the Raspberry Pi for keyboard and mouse.</p>
+  <p /><br /><p /><p>As a programmer I want be constantly updated with technologies/programming  languages I use, <strong>I want to read tutorials, tips, best practices</strong> and wanted to <strong>know about new tools and frameworks that are coming</strong>, and for that I was constantly asking people about best blogs / websites about Technology-X, and I was also very often bombarded with the questions like: <em>What are the best Python blogs?</em> or <em>What are the best ruby on rails blogs?</em> and <em>What's the best IDE for java development?</em> etc.</p>
 
-<p>Things you'll need:</p>
+<p>But there is no solution available to get all this information in one place, so I thought of developing one: I call it <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Ken</a>.</p>
 
-<ol>
-<li>Android phone</li>
-<li>A Raspberry pi</li>
-</ol>
+<p>It is an Android app which keeps you updated with the latest programming news, you have to select your interests e.g: Node, Python, Javascript, Android etc. and it will show you all the latest news related to these technologies.</p>
 
+<p>Ken is tool which I needed badly and I think a lot of other people can benefit from it, so if you are having the same problem which I had: <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Try Ken</a></p>
 
-<p>What we'll do:</p>
-
-<ol>
-<li>We will install VNC on Android, I am using pocketvnc</li>
-<li>Then, we will use USB tethering on Android and connect it to Raspberry pi using USB</li>
-<li>Then in the Raspberry pi we will install x11vnc <strong>(sudo apt-get install x11vnc)</strong> so that we can connect to an exisiting X-Window server and share it using vnc, so that we can use keyboard and mouse connected to raspberry pi.</li>
-<li>Change the ip address of raspbery pi <strong>sudo ifconfig usb0 192.168.42.10</strong> (Because android assing IP in USB tether mode in the range 192.168.42.x)</li>
-<li>Start the X-Server (if you have not started it alerady) using the  <strong><em>startx</em></strong> command.</li>
-<li>The share it using x11vnc, type the following command in the terminal: ***sudo x11vnc -display : 0</li>
-<li>Then connect to your raspberry pi to Android using the VNC software you have downloaded: port 5900 and IP 192.168.42.10</li>
-</ol>
-
-
-<p>I know it is not very detialed tutorial and a bit crude, I will soon post a detialed one with images and video.
-Also we could automate a lot stuff on startup using .bash_profile so that we don't have to type in these commands everytime.
-I'll post all this in the next update.</p>
-
-<p>I would love to hear about you suggestions in the comments.
-Thanks</p>
-
-<p>(Please excuse the typos, I am very excited about this and I want to post it online ASAP, so I am not profreading it.)</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Download from Google Play</a></p>
 
 
 <div class="well">
@@ -127,11 +105,11 @@ Thanks</p>
       
         <p><li><span>02 Aug 2013</span> - <a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
       
-        <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
-      
         <p><li><span>12 Jun 2013</span> - <a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></li></p>
       
         <p><li><span>13 Jan 2013</span> - <a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></li></p>
+      
+        <p><li><span>31 Dec 2012</span> - <a href="/Android_as_display.html">Use your Android Phone as a display for Raspberrypi</a></li></p>
       
     </ul>
   </nav>

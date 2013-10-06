@@ -87,20 +87,17 @@
     </h5>
   </header>
 
-  <p /><br /><p /><h1>Handling custom tags using Html.TagHandler()</h1>
+  <p /><br /><p /><p>While working on my app <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Android app Ken</a>, I needed to render HTML in Android, I was very much delighted when I found out that android's TextView supports HTML rendering and it can be easily achived by converting html into <a href="http://developer.android.com/reference/android/text/Spannable.html">Spannable</a> using <strong>Html.fromHtml(&lt;html_Content)</strong> method and sending it to TextView's setText method.</p>
 
-<hr />
-
-<p>While working on my app <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken&amp;hl=en">Android app Ken</a>, I needed to render HTML in Android, I was very much delighted when I found out that android's TextView supports HTML rendering and it can be easily achived by converting html into <a href="http://developer.android.com/reference/android/text/Spannable.html">Spannable</a> using <strong>Html.fromHtml(&lt;html_Content)</strong> method and sending it to TextView's setText method.</p>
-
-<blockquote><p>TextView myTxt = (TextView)findViewById(R.id.textView);
-myTxt.setText(Html.fromHtml(htmlContent,ImageHandler,TagHandler));</p></blockquote>
+<pre><code>TextView myTxt = (TextView)findViewById(R.id.textView);
+myTxt.setText(Html.fromHtml(htmlContent,ImageHandler,TagHandler));
+</code></pre>
 
 <p>But there is catch with Html.fromHtml method, it doesn't support all tags; well that was a killjoy, but html.fromHtml method accpets a TagHandler which is class we can implement to handle custom html tags, but it is not well documented, after struggling for a while and reading the source code of HTML class method I was finally able to define my own tagHandler class which is able to handle ul, ol and code tags.</p>
 
 <h2>Handling Html</h2>
 
-<p>Here is my custom Github custom tagHandler:</p>
+<p>Here is my custom tagHandler:</p>
 
 <script src="https://gist.github.com/mlakkadshaw/5983704.js"></script>
 
@@ -119,6 +116,10 @@ The <strong>handleTagList()</strong> method handles the list tags, and handling 
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
+      
+        <p><li><span>02 Aug 2013</span> - <a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
+      
+        <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
       
         <p><li><span>13 Jan 2013</span> - <a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></li></p>
       
@@ -156,6 +157,10 @@ The <strong>handleTagList()</strong> method handles the list tags, and handling 
 
           </div>
           <nav class="span3">
+          <p class='lead'>
+          	I'm avaliable for freelance web and mobile development.
+          </p>
+          <p>Email: me@mlakkadshaw.com</p>
             <div id="social networks" class="rss twitter" >
               <a href="https://twitter.com/m_lakkadshaw">
                 <img src="/images/twitter.png" alt="Follow me on Twitter" width='100px' />
@@ -165,6 +170,10 @@ The <strong>handleTagList()</strong> method handles the list tags, and handling 
             <h3>Recent Posts</h3>
             <hr />
             <div id="posts">
+              
+                <p><a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></p>
+              
+                <p><a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></p>
               
                 <p><a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></p>
               
