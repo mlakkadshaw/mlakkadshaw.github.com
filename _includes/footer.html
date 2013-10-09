@@ -1,6 +1,24 @@
 <footer>
   <div class="row">
     <div class="span10">
+    	<script type="text/javascript" src="js/jquery.js"></script>
+    	<script type="text/javascript" src="js/transit.js"></script>
+    	<script type="text/javascript">
+    	$(".menu li").hover(function() {
+    		$(this).transition({ "background-color": "orange", "color": "white", skewX: '30deg'},100);
+    	}, function() {
+    		$(this).transition({ "background-color": "white", "color": "black", skewX: '0' },100);
+
+    	});
+
+    	// setInterval(function() {
+    	// 	$('.brand')
+  			// 	.transition({ x: 140 })
+  			// 	.transition({ y: 40 })
+  			// 	.transition({ x: 0 })
+  			// 	.transition({ y: 0 });
+    	// }, 3000);
+    	</script>
       <p class="Copyright 2011-2012">&copy; 2012 Mohammed Lakkadshaw</p>
     </div>
   </div>

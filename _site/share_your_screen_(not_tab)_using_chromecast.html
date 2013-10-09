@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>PeerJS How does it work?</title>
+   <title>Share your screen (not tab) using Chromecast</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -200,7 +200,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/Peer_JS_Performace.html" rel="bookmark" title="Permanent link to ">PeerJS How does it work?</a>
+      <a href="/share_your_screen_%28not_tab%29_using_chromecast.html" rel="bookmark" title="Permanent link to ">Share your screen (not tab) using Chromecast</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -210,7 +210,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>January 13, 2013</time> - 
+        <time>October  7, 2013</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -225,45 +225,45 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p>I was very excited about the latest Web RTC API's on Peer-To-Peer video calling and file transfer, and when I reading about these new API's I came accorss a awesome javascirpt plugin PeerJS, which allows to use the p2p data transfer easily.</p>
+  <p /><br /><p /><p>Google's chrome cast allows you to bream content from your computer/phone to TV, and you can play youtube videos, music, etc. It allows also a really nice feature called as tab sharing, it allows you to share your Google chrome tab to the TV.
+But it doesn't allows you to share your whole screen, in the post I'll explain how you can do that.</p>
 
-<p>I decided to use it for my screensharing app <strong>deadsimplescreensharing</strong>, becuase I am hosting the server on heroku and I am facing huge latency issues and I thought using peer-2-peer would be perfect to solve my problem, but sadly it didn't work!</p>
+<h2>Things required</h2>
 
-<h3>The Problem:</h3>
+<ol>
+<li>Latest version of Google Chrome</li>
+<li>Chromecast</li>
+<li><a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en">Google Cast extension</a> installed in google chrome</li>
+</ol>
 
-<p>I modified my screensharing app's chrome extension to work with peerJS and also the client webpage.
-Then I launched the localserver to test it, I got a connection with the extension I could see data being transmitted from the extension but not being recived at the client side.</p>
 
-<p>I then tried to send small messages like "Hello", "Hi" etc. and I was able to recive them at the client just fine, so I figure out the problem was peerJS was unable to send large files (around 700 KB), and that part totally sucks!</p>
+<h2>Procedure</h2>
 
-<h3>The Solution:</h3>
+<ol>
+<li>Visit https://html5-demos.appspot.com/static/getusermedia/screenshare.html</li>
+<li>Click on "Capture your screen button"</li>
+<li>Click on Chromecast extension and share the current tab</li>
+<li>Minimise Google chrome and enjoy.</li>
+</ol>
 
-<p>The possible soloution I could think about is converting the data:uri (screensharing fetch's the current tab image using data:uri) into an array and then dividing the array into smaller chunks and send them.
-At the client side, recieve the chunks, join and assemble them and then display the image.</p>
 
-<p>Here is the code which I used:</p>
+<p>Now can see your screen, but you can also a white border which is not nice, and you can't get a full screen, to get past that you need to do a bit of extra work.</p>
 
-<pre><code>var partialArray = []
-var partitionSize = 1000 //Size of each sub-array
-for(i=0; i &lt; originalArray.length; i += partitionSize) {
-    partitionArray.push(originalArray.slice(i, Math.min( i, partitionSize+1 )))
-}
-</code></pre>
+<p>Download the <a href="https://dl.dropboxusercontent.com/u/4095659/server.zip">zip package</a> and extract it's contents, and install Node.JS if you don't have already.
+Then open terminal in mac or Command Prompt in windows and type "cd " and drag and drop the "server" folder into the terminal window.</p>
 
-<p>The above code divides a large array into smaller arrays of size 1000 each which can be transmitter over the network.</p>
+<p>Then run "sudo node app.js" and visit <strong>https://localhost</strong> (Note:It's <strong>https</strong> not http), Google Chrome will give you a warning, and you can safely ignore it, because the certificates which I have created for https to work are not verified by any recognised issuing authority.</p>
 
-<h3>Conclusion</h3>
+<p>You'll now see your screen, now share this tab with chrome cast and minimise the Google chrome.
+Enjoy!</p>
 
-<p>There is still lot of work that needs to be done in p2p file transfer or there is some serious issue with peerJS, as it cannot send large files and if it could the file transfer speed is very slow.
-Still the thought of p2p connection is exiciting and I am wating for this new technology to develope so that we all can build cool applications using it</p>
+<p>If you have any questions, ask them in comments below.</p>
 
 
 <div class="well">
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
-      
-        <p><li><span>07 Oct 2013</span> - <a href="/share_your_screen_%28not_tab%29_using_chromecast.html">Share your screen (not tab) using Chromecast</a></li></p>
       
         <p><li><span>03 Oct 2013</span> - <a href="/Executing_tasks_on_specific_dates_nodejs.html">Executing tasks (functions) on specific dates in Node.js</a></li></p>
       
@@ -272,6 +272,8 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
         <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
       
         <p><li><span>12 Jun 2013</span> - <a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></li></p>
+      
+        <p><li><span>13 Jan 2013</span> - <a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></li></p>
       
     </ul>
   </nav>
