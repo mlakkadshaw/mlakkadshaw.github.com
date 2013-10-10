@@ -1,5 +1,5 @@
 ---
-title: Share your screen (not tab) using Chromecast
+title: Share your entire screen using Chromecast
 layout: post
 ---
 
