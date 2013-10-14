@@ -1,0 +1,301 @@
+---
+layout: default
+title: Projects
+---
+
+<style> 
+.panel {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.panel-body:before,
+.panel-body:after {
+  display: table;
+  content: " ";
+}
+
+.panel-body:after {
+  clear: both;
+}
+
+.panel-body:before,
+.panel-body:after {
+  display: table;
+  content: " ";
+}
+
+.panel-body:after {
+  clear: both;
+}
+
+.panel > .list-group {
+  margin-bottom: 0;
+}
+
+.panel > .list-group .list-group-item {
+  border-width: 1px 0;
+}
+
+.panel > .list-group .list-group-item:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.panel > .list-group .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+.panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.panel > .table {
+  margin-bottom: 0;
+}
+
+.panel > .panel-body + .table {
+  border-top: 1px solid #dddddd;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.panel-title > a {
+  color: inherit;
+}
+
+.panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel-group .panel {
+  margin-bottom: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.panel-group .panel + .panel {
+  margin-top: 5px;
+}
+
+.panel-group .panel-heading {
+  border-bottom: 0;
+}
+
+.panel-group .panel-heading + .panel-collapse .panel-body {
+  border-top: 1px solid #dddddd;
+}
+
+.panel-group .panel-footer {
+  border-top: 0;
+}
+
+.panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #dddddd;
+}
+
+.panel-default {
+  border-color: #dddddd;
+}
+
+.panel-default > .panel-heading {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+}
+
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #dddddd;
+}
+
+.panel-default > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #dddddd;
+}
+
+.panel-primary {
+  border-color: #428bca;
+}
+
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.panel-primary > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #428bca;
+}
+
+.panel-primary > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #428bca;
+}
+
+.panel-success {
+  border-color: #d6e9c6;
+}
+
+.panel-success > .panel-heading {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.panel-success > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #d6e9c6;
+}
+
+.panel-success > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #d6e9c6;
+}
+
+.panel-warning {
+  border-color: #fbeed5;
+}
+
+.panel-warning > .panel-heading {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
+
+.panel-warning > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #fbeed5;
+}
+
+.panel-warning > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #fbeed5;
+}
+
+.panel-danger {
+  border-color: #eed3d7;
+}
+
+.panel-danger > .panel-heading {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.panel-danger > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #eed3d7;
+}
+
+.panel-danger > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #eed3d7;
+}
+
+.panel-info {
+  border-color: #bce8f1;
+}
+
+.panel-info > .panel-heading {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.panel-info > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #bce8f1;
+}
+
+.panel-info > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #bce8f1;
+}
+</style>
+  <h2>Projects</h2>
+  
+      <div class="row">
+        <div class="span4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Multi-user screen html5 screensharing <br /> <small>Client: LinkedIn</small></h3>
+              </div>
+              <div class="panel-body">
+                Developed a HTML5 full screen-sharing application, which allows one to many screensharing right from the browser. Node.JS and specialized Binary websockets were used for smooth screen-sharing experience.
+              </div>
+            </div>
+        </div>
+        <div class="span4">
+                      <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Global Management System <br /> <small>Client: RoomProTech</small></h3>
+              </div>
+              <div class="panel-body">
+                Developed the Global mangement system for RoomProTech which allows them to control thousands of RPT devices, view reports and manage compaines and employees online. Developed the complete web app and server, AngularJS is used on the front-end and Node.JS is used on the server.
+              </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Developed SAP Hanna + Web App <br /> <small>Client: Shoeb Javed (CTO Worksoft)</small></h3>
+              </div>
+              <div class="panel-body">
+                Developed web front-end and REST api's for Widgets of a SAP HANNA application. The Front-end MVC used is AngularJS and custom widgets were developed in <strong>d3.js</strong>. For other widgets wijmo is used. The server is written in Java.
+              </div>
+            </div>
+        </div>
+        <div class="span4">
+                      <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Gyanmobile - Web Education Platform <br /> <small>Client: Gyanmobile</small></h3>
+              </div>
+              <div class="panel-body">
+                Developed an education platform, which is a Coursera like web application, which provides test, peer performance comparison and performance analysis.
+              </div>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+            <div class="span4">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Ken - Magazine for Programmers <br /> <small> <a href="https://www.xda­developers.com/android/keep-up-to-date-with-the-latest-programming-news-with-ken/">Android Application (featured on XDA-Developers)</a></small></h3>
+              </div>
+              <div class="panel-body">
+               Developed native android application in Java, which communicates with server via REST api's. The server is written in Python, which scrapes the web for latest programming related content.
+                <a href="https://play.google.com/store/apps/details?id=com.mohammedlakkadshaw.ken"> Google Play Link</a>
+               
+              </div>
+            </div>
+        </div>
+        <div class="span4">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Custom Jquery Plugins and Animations <br /> <small>Client: Nortsa</small></h3>
+              </div>
+              <div class="panel-body">
+                Developed custom jQuery plugins for animations and various custom effects. Also modifed existing plugins to exibit custom behaviour and resolved confilt amoung the plugins.
+              </div>
+            </div>
+        </div>
+      </div>
+    

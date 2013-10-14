@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>PeerJS How does it work?</title>
+   <title>Mastering web-storm</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -201,7 +201,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/Peer_JS_Performace.html" rel="bookmark" title="Permanent link to ">PeerJS How does it work?</a>
+      <a href="/mastering_webstrom.html" rel="bookmark" title="Permanent link to ">Mastering web-storm</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -211,7 +211,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>January 13, 2013</time> - 
+        <time>October 12, 2013</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -226,45 +226,73 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p>I was very excited about the latest Web RTC API's on Peer-To-Peer video calling and file transfer, and when I reading about these new API's I came accorss a awesome javascirpt plugin PeerJS, which allows to use the p2p data transfer easily.</p>
+  <p /><br /><p /><p>I am big fan of sublime text, and I use it extensively. Then I came across WebStorm, I like it and I want to learn more about it, because any craftsman should know how to use his tools effectively.
+So I was looking for some tutorial and videos on mastering web storm and I came across this excellent video by John Lindquist. I highly recommend that you <a href="http://www.youtube.com/watch?v=LJOyrSh1kDU&amp;feature=youtu.be">watch the video</a>.</p>
 
-<p>I decided to use it for my screensharing app <strong>deadsimplescreensharing</strong>, becuase I am hosting the server on heroku and I am facing huge latency issues and I thought using peer-2-peer would be perfect to solve my problem, but sadly it didn't work!</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/LJOyrSh1kDU" frameborder="0" allowfullscreen></iframe>
 
-<h3>The Problem:</h3>
 
-<p>I modified my screensharing app's chrome extension to work with peerJS and also the client webpage.
-Then I launched the localserver to test it, I got a connection with the extension I could see data being transmitted from the extension but not being recived at the client side.</p>
+<p>I have also tried to summarise what's there in the video, but I recommend that you watch the whole thing, but for those who cannot spare the time to watch the whole thing, here is the excerpt:</p>
 
-<p>I then tried to send small messages like "Hello", "Hi" etc. and I was able to recive them at the client just fine, so I figure out the problem was peerJS was unable to send large files (around 700 KB), and that part totally sucks!</p>
+<h3>Code Inspect:</h3>
 
-<h3>The Solution:</h3>
+<p>Webstorm offers a nice code inspector, and to inspect code, right click on any directory inside Webstorm and click inspect Code.
+It will give you a list of the issues and warnings and improvements which you can make, and is kind of really useful when your are doing code reviews and stuff like that.</p>
 
-<p>The possible soloution I could think about is converting the data:uri (screensharing fetch's the current tab image using data:uri) into an array and then dividing the array into smaller chunks and send them.
-At the client side, recieve the chunks, join and assemble them and then display the image.</p>
+<p><strong>Autocomplete Shortcut</strong>: Whenever a small bulb appears in Web storm, it indicated that Webstorm has some suggestions, and you can hit  <em>alt+Enter</em> to bring the menu which shows the suggestions.</p>
 
-<p>Here is the code which I used:</p>
+<p><strong>Go back in time</strong>: Webstorm has a nice auto-save feature, you don't have to manually save things in Webstorm, and when you have changed something and want to revert your change you can go back in time by: <em>Right-click-> local history</em></p>
 
-<pre><code>var partialArray = []
-var partitionSize = 1000 //Size of each sub-array
-for(i=0; i &lt; originalArray.length; i += partitionSize) {
-    partitionArray.push(originalArray.slice(i, Math.min( i, partitionSize+1 )))
-}
-</code></pre>
+<p><strong>Getting things from CDN</strong>: When using CDN in script tags and stylesheets src, Webstorm will show a warning, you can hit <em>alt+Enter->Download locally</em>, by doing that it will download the linked file and show autocomplete off that.</p>
 
-<p>The above code divides a large array into smaller arrays of size 1000 each which can be transmitter over the network.</p>
+<p><strong>Fine tune suggestions</strong>: In Webstorm you can fine tune the settings about auto-complete, suggestions, warning and errors.
+Click on the lower right hand side corner->on hector the inspector and fine tune the inspection</p>
 
-<h3>Conclusion</h3>
+<h3>Keyboard shortcuts:</h3>
 
-<p>There is still lot of work that needs to be done in p2p file transfer or there is some serious issue with peerJS, as it cannot send large files and if it could the file transfer speed is very slow.
-Still the thought of p2p connection is exiciting and I am wating for this new technology to develope so that we all can build cool applications using it</p>
+<p>To learn about keyboard shortcuts, go to
+<a href="https://www.shortcutfoo.com/app/tutorial/webstorm">Shorcut Foo</a></p>
+
+<h3>Actions:</h3>
+
+<p><em>Cmd + Shift + A</em> bring the action bar.
+Select content, and press <em>cmd+shit+a</em> and select <em>create live template.</em>
+And add variable by $name$ and $end$ to specify where the cursor ends.
+Webstorm uses velocity template language.</p>
+
+<h3>Refactoring</h3>
+
+<p>Refactor this shortcut CMD+SHIFT+ALT+T
+/<strong>+tab automatically generate the document
+</strong>Cmd+Alt+V** to pulling out variable.</p>
+
+<h3>Navigation</h3>
+
+<p>Open up the file structure: can also be invoked by cmd+f12</p>
+
+<p>To navigate project: cmd+shift+n, wildcard are also supported
+s/a/*.js -> source/auto/ and all the javascript
+cmd+alt+shift -> type the name of the method
+and cmd+shift+i while doing this, will also show preview of the file, and cmd+shift+j while doing that will show documentation if available.</p>
+
+<h3>Version control:</h3>
+
+<p>Webstrom also has an integrated VCS manager, to bring the VCS Popup hit <em>Ctrl+V</em>.
+Webstorm is also integrated with Github, you can easily import your github repos in Web-storm.</p>
+
+<h3>External tools:</h3>
+
+<p>To add external tools, go to <em>Preference -> External tools</em> and add details about the external tools you want to add, for e.g. Yeoman</p>
+
+<h3>File launchers:</h3>
+
+<p>If you create a coffee script file, it will ask you to add a watcher, and it will generate the corresponding js file, same if for sass etc.</p>
 
 
 <div class="well">
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
-      
-        <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
       
         <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
@@ -273,6 +301,8 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
         <p><li><span>03 Oct 2013</span> - <a href="/Executing_tasks_on_specific_dates_nodejs.html">Executing tasks (functions) on specific dates in Node.js</a></li></p>
       
         <p><li><span>02 Oct 2013</span> - <a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
+      
+        <p><li><span>14 Jun 2013</span> - <a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></li></p>
       
     </ul>
   </nav>
