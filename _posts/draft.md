@@ -1,0 +1,2 @@
+## Using d3 in Angular
+This blog post I'll talk about using d3.js, give you a nice and short tutorial on how to use d3, and then talk about how you can use d3 with angular to create custom and re-usable components and graphs. (Actually it's really simple, you just wrap it in a directive)
