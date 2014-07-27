@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Mastering web-storm</title>
+   <title>Command line and native apps in Node.js</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -201,7 +201,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/mastering_webstrom.html" rel="bookmark" title="Permanent link to ">Mastering web-storm</a>
+      <a href="/command_line_and_native_apps_in_node.js.html" rel="bookmark" title="Permanent link to ">Command line and native apps in Node.js</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -211,7 +211,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October 12, 2013</time> - 
+        <time>July 27, 2014</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -226,67 +226,109 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p>I am big fan of sublime text, and I use it extensively. Then I came across WebStorm, I like it and I want to learn more about it, because any craftsman should know how to use his tools effectively.
-So I was looking for some tutorial and videos on mastering web storm and I came across this excellent video by John Lindquist. I highly recommend that you <a href="http://www.youtube.com/watch?v=LJOyrSh1kDU&amp;feature=youtu.be">watch the video</a>.</p>
+  <p /><br /><p /><p>Node.js is becoming very popular platform for creating command line utilities, so I am writing this blog post to help you get started.</p>
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/LJOyrSh1kDU" frameborder="0" allowfullscreen></iframe>
+<h2>Creating an executable script</h2>
 
+<p>To create an executable script you will have to add shebang at the top of the script. E.g:</p>
 
-<p>I have also tried to summarise what's there in the video, but I recommend that you watch the whole thing, but for those who cannot spare the time to watch the whole thing, here is the excerpt:</p>
+<pre><code>    #!/usr/bin/env node
 
-<h3>Code Inspect:</h3>
+    console.log("First program");
+</code></pre>
 
-<p>Webstorm offers a nice code inspector, and to inspect code, right click on any directory inside Webstorm and click inspect Code.
-It will give you a list of the issues and warnings and improvements which you can make, and is kind of really useful when your are doing code reviews and stuff like that.</p>
+<p>Assuming you are on a UNIX like system, you will also have to change the permission of the script and make it executable.</p>
 
-<p><strong>Autocomplete Shortcut</strong>: Whenever a small bulb appears in Web storm, it indicated that Webstorm has some suggestions, and you can hit  <em>alt+Enter</em> to bring the menu which shows the suggestions.</p>
+<pre><code>chmod +x script.js
+</code></pre>
 
-<p><strong>Go back in time</strong>: Webstorm has a nice auto-save feature, you don't have to manually save things in Webstorm, and when you have changed something and want to revert your change you can go back in time by: <em>Right-click-> local history</em></p>
+<p>and now you can execute the script:</p>
 
-<p><strong>Getting things from CDN</strong>: When using CDN in script tags and stylesheets src, Webstorm will show a warning, you can hit <em>alt+Enter->Download locally</em>, by doing that it will download the linked file and show autocomplete off that.</p>
+<pre><code>./script
+First Program
+</code></pre>
 
-<p><strong>Fine tune suggestions</strong>: In Webstorm you can fine tune the settings about auto-complete, suggestions, warning and errors.
-Click on the lower right hand side corner->on hector the inspector and fine tune the inspection</p>
+<h2>Accepting arguments</h2>
 
-<h3>Keyboard shortcuts:</h3>
+<p>You would also want you command line tool to accept arguments, which you can do using <strong>process.argv</strong>. This is an array which will contain all the supplied command line arguments.</p>
 
-<p>To learn about keyboard shortcuts, go to
-<a href="https://www.shortcutfoo.com/app/tutorial/webstorm">Shorcut Foo</a></p>
+<p><strong><em>script.js</em></strong></p>
 
-<h3>Actions:</h3>
+<pre><code>process.argv.forEach(function(val, index) {
+    console.log(index + " : " + val);
+});
+</code></pre>
 
-<p><em>Cmd + Shift + A</em> bring the action bar.
-Select content, and press <em>cmd+shit+a</em> and select <em>create live template.</em>
-And add variable by $name$ and $end$ to specify where the cursor ends.
-Webstorm uses velocity template language.</p>
+<p>The above script will print out all the supplied arguments, when executed it will generate the following out:</p>
 
-<h3>Refactoring</h3>
+<pre><code>$ node script.js argument-1 -f -k -d 
+0: node
+1: /Users/mohammed/code/script.js
+2: argument-1
+3: -f
+4: -k
+5: -d
+</code></pre>
 
-<p>Refactor this shortcut CMD+SHIFT+ALT+T
-/<strong>+tab automatically generate the document
-</strong>Cmd+Alt+V** to pulling out variable.</p>
+<p>To remove 'node' and path from your script can slice out those arguments:</p>
 
-<h3>Navigation</h3>
+<pre><code>var args = process.argv.slice(2);
+</code></pre>
 
-<p>Open up the file structure: can also be invoked by cmd+f12</p>
+<p>There several libraries out there that will make the task of accepting arguments easier, but if you are doing something trivial, I would suggest sticking to the default method.</p>
 
-<p>To navigate project: cmd+shift+n, wildcard are also supported
-s/a/*.js -> source/auto/ and all the javascript
-cmd+alt+shift -> type the name of the method
-and cmd+shift+i while doing this, will also show preview of the file, and cmd+shift+j while doing that will show documentation if available.</p>
+<p>/Users/mohammed/Documents/blog/_posts/draft.md</p>
 
-<h3>Version control:</h3>
+<h2>Colors on the command line</h2>
 
-<p>Webstrom also has an integrated VCS manager, to bring the VCS Popup hit <em>Ctrl+V</em>.
-Webstorm is also integrated with Github, you can easily import your github repos in Web-storm.</p>
+<p>If you want to display messages with different colours, there is a nice library called as <a href="https://www.npmjs.org/package/colors">colors</a> to do it effortlessly.
+Install it via nom:</p>
 
-<h3>External tools:</h3>
+<pre><code>$ npm install colors
+</code></pre>
 
-<p>To add external tools, go to <em>Preference -> External tools</em> and add details about the external tools you want to add, for e.g. Yeoman</p>
+<p>And then include it in your script:</p>
 
-<h3>File launchers:</h3>
+<pre><code>var colors = require('./colors');   
 
-<p>If you create a coffee script file, it will ask you to add a watcher, and it will generate the corresponding js file, same if for sass etc.</p>
+console.log('hello'.green); // outputs green text
+console.log('i like cake and pies'.underline.red) // outputs red underlined text
+console.log('inverse the color'.inverse); // inverses the color
+console.log('OMG Rainbows!'.rainbow); // rainbow (ignores spaces)
+</code></pre>
+
+<h2>Exit event</h2>
+
+<p>If you want to preform some operation on exit, you can listen to the exit event. Once the exit event is called there is no way to prevent the exiting of the event loop, hence you must only perform <strong>synchronous</strong> operations in this handler.</p>
+
+<pre><code>process.on('exit', function(code) {
+    console.log("About to exit");
+});
+</code></pre>
+
+<h2>Exit codes</h2>
+
+<p>Node.js provides supports for exit codes, if you script exits without any error, the exit code should be 0. If you script exits with an error it should be 1 or higher.
+Exit codes in node.js are passed using <strong>process.exit()</strong>.</p>
+
+<pre><code>process.exit(0)
+</code></pre>
+
+<h2>Process object</h2>
+
+<h3>process.uptime()</h3>
+
+<p>Returns the number of seconds the script has been running</p>
+
+<h3>process.memoryUsage()</h3>
+
+<p>Returns an object describing the memory usage</p>
+
+<h4>process.pid</h4>
+
+<p>The PID of the process</p>
+
+<p>If you have any questions or suggestions feel free to comment.</p>
 
 
 <div class="well">
@@ -294,7 +336,7 @@ Webstorm is also integrated with Github, you can easily import your github repos
     <h3>Related Posts</h3>
     <ul class="posts">
       
-        <p><li><span>27 Jul 2014</span> - <a href="/command_line_and_native_apps_in_node.js.html">Command line and native apps in Node.js</a></li></p>
+        <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
       
         <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
