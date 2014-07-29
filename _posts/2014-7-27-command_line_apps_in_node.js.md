@@ -10,10 +10,12 @@ Node.js is becoming very popular platform for creating command line utilities, s
 ## Creating an executable script
 
 To create an executable script you will have to add shebang at the top of the script. E.g:
+{% highlight javascript %}
+#!/usr/bin/env node
 
-		#!/usr/bin/env node
+console.log("First program");
 		
-		console.log("First program");
+{% endhighlight %}
 		
 Assuming you are on a UNIX like system, you will also have to change the permission of the script and make it executable.
 
@@ -29,11 +31,13 @@ and now you can execute the script:
 
 You would also want use command line tool to accept arguments, which you can do using **process.argv**. This is an array which will contain all the supplied command line arguments.
 
-***script.js***
-	
+`script.js`
+
+{% highlight javascript %}
 	process.argv.forEach(function(val, index) {
 		console.log(index + " : " + val);
 	});
+{% endhighlight %}
 
 The above script will print out all the supplied arguments, when executed it will generate the following out:
 

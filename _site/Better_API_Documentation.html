@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Dead Simple Screen sharing (DSS) - Overview</title>
+   <title>Better API documentations</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -202,7 +202,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/Deadsimplescreensharing_overview.html" rel="bookmark" title="Permanent link to ">Dead Simple Screen sharing (DSS) - Overview</a>
+      <a href="/Better_API_Documentation.html" rel="bookmark" title="Permanent link to ">Better API documentations</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -212,7 +212,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October 10, 2013</time> - 
+        <time>July 28, 2014</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -227,36 +227,35 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p><strong>Grab source on <a href="https://github.com/mlakkadshaw/DeadSimpleScreeSharing">GitHub</a></strong></p>
+  <p /><br /><p /><p><a href="http://xkcd.com/293/"><img src="http://imgs.xkcd.com/comics/rtfm.png" alt="image" /></a></p>
 
-<p><strong>Project <a href="http://deadsimplescreensharing.com">site</a></strong></p>
+<p>It is a tedious job to write api documentations, and we have been using word documents and excel spreadsheets to create api documents.
+But they are difficult to follow and search though, what if there was an easier and cleaner way to create API documents? When I started working on my latest project I was searching for an efficient way to write API documents and a way to generate beautiful documentations, my quest for finding the best api documentation tool lead me to <a href="http://apiblueprint.org"><strong>API Blueprint</strong></a>.</p>
 
-<p>Sometime ago a developed an open-source screen sharing application called as <a href="http://deadsimplescreensharing.com">DeadSimpleScreenSharing</a> which allows you to share your screen with anyone right from your browser.
-It requires you to install an extension, when you click "Share your Screen" button on that extension, it will gives you a unique url which you can share with any number of people, and they can view your screen.
-In this blog post I will give a brief overview on how this application works.</p>
+<h2>What is API Blueprint?</h2>
 
-<h3>The Extension:</h3>
+<p>API blueprint is a language based on <a href="http://daringfireball.net/projects/markdown/">Markdown</a> which allows you to write API documents clearly, moreover it has great tools which takes in your api blueprint document and convert it into beautiful html API documentation and much more.</p>
 
-<p>The DSS requires you to install an extension, a extension is required because there has to be some application running background which listens to tab changes and transmits this data to the server.
-The extension uses the chrome extension api's <strong>caputreVisibleTab()</strong> method get the visible tab and attaches <strong>mutationObservers</strong> and listen for DOM changes, when there is a change in the DOM, it transmits the data to the server via web sockets.</p>
+<h3>Useful tools:</h3>
 
-<h3>The Server:</h3>
+<p>Here are some tools which I find useful, that you can use with your api documentation written using <a href="http://apiblueprint.org"><strong>API Blueprint</strong></a>. These tools make the API blueprint documents very powerful. There are tools generate beautify html documentations to even create mock api servers.</p>
 
-<p>The server is written in Javascript(node.js) and uses web sockets (socket.io), each session is namespace by unique id which is generate when the user presses the "Share your screen" button on the extension.
-The server just receives the data and forwards it to all the connected clients in that namespace.</p>
+<h4>Creating Online documentation:</h4>
 
-<h3>Get it working locally:</h3>
+<p>There is a web app called as <a href="http://apiary.io">Apiary</a>, which allows you to write in api blueprint format, and it generate beautiful online documentations, it also provide mock api server which will emulate your API based on the documentation, which is pretty useful if you don't have the API server ready yet and want to use the APIs for prototype the applications.
+It will allow you to quickly build and test the API, without writing a single line of code.</p>
 
-<p>If you want to run DSS locally, you need to have:
-1. Node.js installed
-2. Install express using 'npm install express'
-3. Install socket.io run 'npm install socket.io'
-and follow along the video.</p>
+<h4>API blueprint document into html documentation</h4>
 
-<iframe width="840" height="520" src="//www.youtube.com/embed/-0ifc3SuZZk" frameborder="0" allowfullscreen></iframe>
+<p>There is an awesome tool called as <a href="https://github.com/danielgtaylor/aglio">Aligo</a> which will allows to create beautiful html documentation from the api blueprint document.</p>
 
+<h4>API blueprint document into POSTMAN collection</h4>
 
+<p>A utility called as <a href="http://git.io/blueman">Blueman</a> allows you to convert the api blueprint domination into <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">POSTMAN</a> collection, which you can import into your <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">POSTMAN REST Client</a>.</p>
 
+<h4>Local Mock Server</h4>
+
+<p><a href="https://bitbucket.org/outofcoffee/api-blueprint-mockserver">API Blueprint Mock Server</a> create a local api mock server using the api blueprint which you have provided, which you can use to prototype REST APIs.</p>
 
 
 <div class="well">
@@ -264,11 +263,11 @@ and follow along the video.</p>
     <h3>Related Posts</h3>
     <ul class="posts">
       
-        <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
-      
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
       
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
+      
+        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
         <p><li><span>07 Oct 2013</span> - <a href="/share_your_screen_%28not_tab%29_using_chromecast.html">Share your entire screen using Chromecast</a></li></p>
       
