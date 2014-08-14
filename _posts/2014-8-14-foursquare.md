@@ -1,6 +1,7 @@
-iOS app review FourSquare
-==========
-
+---
+layout: post
+title: iOS app review FourSquare
+---
 FourSquare is an app for finding nearby places to visit and eat wherever you are located
 
 FourSquare is a very nice application to find places to visit, categories include
