@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Dead Simple Screen sharing (DSS) - Overview</title>
+   <title>Building command line apps in Node.js</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -202,7 +202,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/Deadsimplescreensharing_overview.html" rel="bookmark" title="Permanent link to ">Dead Simple Screen sharing (DSS) - Overview</a>
+      <a href="/command_line_apps_in_node.js.html" rel="bookmark" title="Permanent link to ">Building command line apps in Node.js</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -212,7 +212,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October 10, 2013</time> - 
+        <time>July 27, 2014</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -227,36 +227,108 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p><strong>Grab source on <a href="https://github.com/mlakkadshaw/DeadSimpleScreeSharing">GitHub</a></strong></p>
+  <p /><br /><p /><p>Node.js is becoming very popular platform for creating command line utilities, so I am writing this blog post to help you get started.</p>
 
-<p><strong>Project <a href="http://deadsimplescreensharing.com">site</a></strong></p>
+<h2>Creating an executable script</h2>
 
-<p>Sometime ago a developed an open-source screen sharing application called as <a href="http://deadsimplescreensharing.com">DeadSimpleScreenSharing</a> which allows you to share your screen with anyone right from your browser.
-It requires you to install an extension, when you click "Share your Screen" button on that extension, it will gives you a unique url which you can share with any number of people, and they can view your screen.
-In this blog post I will give a brief overview on how this application works.</p>
+<p>To create an executable script you will have to add shebang at the top of the script. E.g:</p>
 
-<h3>The Extension:</h3>
+<div class="highlight"><pre><code class="javascript"><span class="err">#</span><span class="o">!</span><span class="err">/usr/bin/env node</span>
 
-<p>The DSS requires you to install an extension, a extension is required because there has to be some application running background which listens to tab changes and transmits this data to the server.
-The extension uses the chrome extension api's <strong>caputreVisibleTab()</strong> method get the visible tab and attaches <strong>mutationObservers</strong> and listen for DOM changes, when there is a change in the DOM, it transmits the data to the server via web sockets.</p>
-
-<h3>The Server:</h3>
-
-<p>The server is written in Javascript(node.js) and uses web sockets (socket.io), each session is namespace by unique id which is generate when the user presses the "Share your screen" button on the extension.
-The server just receives the data and forwards it to all the connected clients in that namespace.</p>
-
-<h3>Get it working locally:</h3>
-
-<p>If you want to run DSS locally, you need to have:
-1. Node.js installed
-2. Install express using 'npm install express'
-3. Install socket.io run 'npm install socket.io'
-and follow along the video.</p>
-
-<iframe width="840" height="520" src="//www.youtube.com/embed/-0ifc3SuZZk" frameborder="0" allowfullscreen></iframe>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;First program&quot;</span><span class="p">);</span>
+        
+</code></pre></div>
 
 
+<p>Assuming you are on a UNIX like system, you will also have to change the permission of the script and make it executable.</p>
 
+<pre><code>chmod +x script.js
+</code></pre>
+
+<p>and now you can execute the script:</p>
+
+<pre><code>./script
+First Program
+</code></pre>
+
+<h2>Accepting arguments</h2>
+
+<p>You would also want use command line tool to accept arguments, which you can do using <strong>process.argv</strong>. This is an array which will contain all the supplied command line arguments.</p>
+
+<p><code>script.js</code></p>
+
+<div class="highlight"><pre><code class="javascript">   <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nx">val</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+
+
+<p>The above script will print out all the supplied arguments, when executed it will generate the following out:</p>
+
+<pre><code>$ node script.js argument-1 -f -k -d 
+0: node
+1: /Users/mohammed/code/script.js
+2: argument-1
+3: -f
+4: -k
+5: -d
+</code></pre>
+
+<p>To remove 'node' and path from your script can slice out those arguments:</p>
+
+<pre><code>var args = process.argv.slice(2);
+</code></pre>
+
+<p>There several libraries out there that will make the task of accepting arguments easier, but if you are doing something trivial, I would suggest sticking to the default method.
+One notable example of such library is <a href="https://github.com/chriso/cli">cli</a>.</p>
+
+<h2>Colors on the command line</h2>
+
+<p>If you want to display messages with different colours, there is a nice library called as <a href="https://www.npmjs.org/package/colors">colors</a> to do it effortlessly.
+Install it via nom:</p>
+
+<pre><code>$ npm install colors
+</code></pre>
+
+<p>And then include it in your script:</p>
+
+<pre><code>var colors = require('./colors');   
+
+console.log('hello'.green); // outputs green text
+console.log('i like cake and pies'.underline.red) // outputs red underlined text
+console.log('inverse the color'.inverse); // inverses the color
+console.log('OMG Rainbows!'.rainbow); // rainbow (ignores spaces)
+</code></pre>
+
+<h2>Exit event</h2>
+
+<p>If you want to preform some operation on exit, you can listen to the exit event. Once the exit event is called there is no way to prevent the exiting of the event loop, hence you must only perform <strong>synchronous</strong> operations in this handler.</p>
+
+<pre><code>process.on('exit', function(code) {
+    console.log("About to exit");
+});
+</code></pre>
+
+<h2>Exit codes</h2>
+
+<p>Node.js provides supports for exit codes, if you script exits without any error, the exit code should be 0. If your script exits with an error it should be 1 or higher.
+Exit codes in node.js are passed using <strong>process.exit()</strong>.</p>
+
+<pre><code>process.exit(0)
+</code></pre>
+
+<h2>Process object</h2>
+
+<p><strong>process.uptime()</strong>
+Returns the number of seconds the script has been running</p>
+
+<p><strong>process.memoryUsage()</strong>
+Returns an object describing the memory usage</p>
+
+<p><strong>process.pid</strong>
+The PID of the process</p>
+
+<p>If you have any questions or suggestions feel free to comment.</p>
 
 
 <div class="well">
@@ -266,9 +338,9 @@ and follow along the video.</p>
       
         <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
       
-        <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
-      
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
+      
+        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
         <p><li><span>07 Oct 2013</span> - <a href="/share_your_screen_%28not_tab%29_using_chromecast.html">Share your entire screen using Chromecast</a></li></p>
       
