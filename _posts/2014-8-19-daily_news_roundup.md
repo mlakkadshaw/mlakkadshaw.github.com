@@ -1,5 +1,5 @@
 ---
-title: Daily News roundup
+title: Daily Tech News roundup
 layout: post
 ----
 
