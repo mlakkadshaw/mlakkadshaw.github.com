@@ -2,7 +2,8 @@
 layout: post
 title: Daily News roundup
 ----
-We at [MohammedLakkadshaw & Co](http://mohammedlakkadshaw.com) brings you the latest news and ongoings in the tech industry
+
+We at [MohammedLakkadshaw & Co](http://mohammedlakkadshaw.com) a web and mobile app development firm brings you the latest news and ongoings in the tech industry
 
 ## Google releases photosphere app for iPhone
 
