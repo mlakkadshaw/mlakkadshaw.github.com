@@ -1,6 +1,6 @@
 ---
-layout: post
 title: Daily News roundup
+layout: post
 ----
 
 We at [MohammedLakkadshaw & Co](http://mohammedlakkadshaw.com) a web and mobile app development firm brings you the latest news and ongoings in the tech industry
