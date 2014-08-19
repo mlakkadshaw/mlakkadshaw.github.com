@@ -1,7 +1,9 @@
 ---
-title: Daily Tech News roundup
 layout: post
-----
+title: Daily Tech News Roundup
+---
+
+
 
 We at [MohammedLakkadshaw & Co](http://mohammedlakkadshaw.com) a web and mobile app development firm brings you the latest news and ongoings in the tech industry
 
