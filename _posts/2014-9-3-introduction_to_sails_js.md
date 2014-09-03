@@ -5,7 +5,6 @@ title: Introduction to SalisJS
 
 I was looking for a Node.JS web framework for my project, and in my quest for finding the best framework, I stumbled across Sails.JS, and I have been using it for a few months now and it is pretty awesome at most of the part, so if you need something like Rails for Node.js, Sails is the way to go.
 
-# Terminology:
 The Sails.JS is an MVC framework, so there are Models, Views and Controllers.
 
 ## Models:
@@ -86,22 +85,22 @@ There are lifecycle call-backs present in the models which are very helpful, for
 
 **Callbacks on create**
 
-beforeValidate: fn(values, cb)
-afterValidate: fn(values, cb)
-beforeCreate: fn(values, cb)
-afterCreate: fn(newlyInsertedRecord, cb)
+	beforeValidate: fn(values, cb)
+	afterValidate: fn(values, cb)
+	beforeCreate: fn(values, cb)
+	afterCreate: fn(newlyInsertedRecord, cb)
 
 **Callbacks on update**
 
-beforeValidate: fn(valuesToUpdate, cb)
-afterValidate: fn(valuesToUpdate, cb)
-beforeUpdate: fn(valuesToUpdate, cb)
-afterUpdate: fn(updatedRecord, cb)
+	beforeValidate: fn(valuesToUpdate, cb)
+	afterValidate: fn(valuesToUpdate, cb)
+	beforeUpdate: fn(valuesToUpdate, cb)
+	afterUpdate: fn(updatedRecord, cb)
 
 **Callbacks on destroy**
 
-beforeDestroy: fn(criteria, cb)
-afterDestroy: fn(destroyedRecords, cb)
+	beforeDestroy: fn(criteria, cb)
+	afterDestroy: fn(destroyedRecords, cb)
 
 Consider the example:
 
@@ -163,5 +162,10 @@ In the similar manner we can override the default behaviour by creating actions 
 You don't want anyone accessing and performing unintended activity, like deleting all your real estates, so for that we have policies.
 If you are familiar with ExpressJS, polices are similar to ExpressJS middle-wares.
 The [official SailsJS documentation](http://sailsjs.org/#/documentation/concepts/Policies) explains policies in great detail, be sure to head over there and read about it in details.
+
+# Conclusion
+That's my take on SailsJS, it's a great framework to build apps in Node.JS.
+Let me know if you have any suggestions, questions about this in the comments.
+
 
 
