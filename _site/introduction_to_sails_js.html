@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Share your entire screen using Chromecast</title>
+   <title>Introduction to SalisJS</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -217,7 +217,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/share_your_screen_%28not_tab%29_using_chromecast.html" rel="bookmark" title="Permanent link to ">Share your entire screen using Chromecast</a>
+      <a href="/introduction_to_sails_js.html" rel="bookmark" title="Permanent link to ">Introduction to SalisJS</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -227,7 +227,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October  7, 2013</time> - 
+        <time>September  3, 2014</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -242,47 +242,192 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p>Google's chrome cast allows you to bream content from your computer/phone to TV, and you can play youtube videos, music, etc. It allows also a really nice feature called as tab sharing, it allows you to share your Google chrome tab to the TV.
-But it doesn't allows you to share your whole screen, in the post I'll explain how you can do that.</p>
+  <p /><br /><p /><p>I was looking for a Node.JS web framework for my project, and in my quest for finding the best framework, I stumbled across Sails.JS, and I have been using it for a few months now and it is pretty awesome at most of the part, so if you need something like Rails for Node.js, Sails is the way to go.</p>
 
-<h2>Things required</h2>
+<p>The Sails.JS is an MVC framework, so there are Models, Views and Controllers.</p>
 
-<ol>
-<li>Latest version of Google Chrome</li>
-<li>Chromecast</li>
-<li><a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en">Google Cast extension</a> installed in google chrome</li>
-</ol>
+<h2>Models:</h2>
 
+<p>In Sails.JS you can create models, and model represents the data model, so if for each table you would have a model and in case of no-sql databases, each collection is represented by a model.
+Inside a model you can describe, the attributes present in that model, their datatype and validation rules.</p>
 
-<h2>Procedure</h2>
+<p>Example of a User Model:</p>
 
-<ol>
-<li>Visit https://html5-demos.appspot.com/static/getusermedia/screenshare.html</li>
-<li>Click on "Capture your screen button"</li>
-<li>Click on Chromecast extension and share the current tab</li>
-<li>Minimise Google chrome and enjoy.</li>
-</ol>
+<pre><code>user.js
 
+    module.exports = {
+        attributes: {
+            firstName: 'string',
+            lastName: 'string',
+            email: 'email',
+            role: {
+                type: 'string',
+                enum: ['admin', 'user']
+            }
+    }
+</code></pre>
 
-<p>Now can see your screen, but you can also a white border which is not nice, and you can't get a full screen, to get past that you need to do a bit of extra work.</p>
+<p>In the above example we have a user model, which has a number of attributes, like firstName, lastName, email and role.
+The model structure is pretty straightforward, and Sails.js provides some useful helpers in modules like the <code>enum</code>.
+We have added an <code>enum</code> attribute in role, now Sails will accept only the values present in the enum array.</p>
 
-<p>Download the <a href="https://dl.dropboxusercontent.com/u/4095659/server.zip">zip package</a> and extract it's contents, and install Node.JS if you don't have already.
-Then open terminal in mac or Command Prompt in windows and type "cd " and drag and drop the "server" folder into the terminal window.</p>
+<h3>Magic:</h3>
 
-<p>Then run "sudo node app.js" and visit <strong>https://localhost</strong> (Note:It's <strong>https</strong> not http), Google Chrome will give you a warning, and you can safely ignore it, because the certificates which I have created for https to work are not verified by any recognised issuing authority.</p>
+<p>The magical part is sails is <strong>blueprints</strong>. Sails will create CRUD routes based on the data model.
+Sails will look at your data-model and will create blueprint routes and REST api.
+So, by looking at the model we have created above sails will create REST APIs.
+<strong>Create User</strong>:        HTTP POST:      /user
+<strong>Update User</strong>:        HTTP PUT:       /user/:id
+<strong>Delete User</strong>:        HTTP DELETE: /user/:id
+<strong>Fetch User</strong>:         HTTP GET:       /user/:id
+<strong>Get All Users</strong>:  HTTP GET:       /user</p>
 
-<p>You'll now see your screen, now share this tab with chrome cast and minimise the Google chrome.
-Enjoy!</p>
+<h3>Associations in Model</h3>
 
-<p>If you have any questions, ask them in comments below.</p>
+<p>In Sails you can associate one model with another model, and associations can span across databases.
+So if you have user data stored in Postgres and photos stored in Mongodb, you can interact with the data if they lived in the same database.</p>
+
+<h4>Many to Many</h4>
+
+<p>In this type of association, one model can be associated with many other models and vice versa.
+Lets consider an example of a Real Estate, a Real Estate can be owned by multiple people, a person can own multiple Real Estates.
+Thus we can create a many to many relationship between people and real-estate.
+So, let's begin:</p>
+
+<pre><code>estate.js
+
+module.exports = {
+        attributes: {
+            propertyName: 'string',
+            Address: 'string',
+            owners: {
+                collection: 'user',
+                via: 'estates'
+            }
+        }
+
+user.js
+
+module.exports = {
+    attributes; {
+        firstName: 'string',
+        lastName: 'string',
+        estates: {
+            collection: 'estates',
+            via: 'owner'
+        }
+    }
+}
+</code></pre>
+
+<p>So, in the above example we have created two models, one is user model and another one is estate model.</p>
+
+<p>In the estate model we have created a property named owner, which reference the user model model and points to the owners of the property, so this will be an array containing all the owners of the property.</p>
+
+<p>In the User model we have created a property named estates, and it points to the estate model and it will contain all the estates owned by the user.</p>
+
+<h3>LifeCycle callbacks in Models</h3>
+
+<p>There are lifecycle call-backs present in the models which are very helpful, for e.g: If want to can write some cleanup code when an item in a model is deleted, so you can write the code for that inside the <code>afterDestroy</code> method.</p>
+
+<p><strong>Callbacks on create</strong></p>
+
+<pre><code>beforeValidate: fn(values, cb)
+afterValidate: fn(values, cb)
+beforeCreate: fn(values, cb)
+afterCreate: fn(newlyInsertedRecord, cb)
+</code></pre>
+
+<p><strong>Callbacks on update</strong></p>
+
+<pre><code>beforeValidate: fn(valuesToUpdate, cb)
+afterValidate: fn(valuesToUpdate, cb)
+beforeUpdate: fn(valuesToUpdate, cb)
+afterUpdate: fn(updatedRecord, cb)
+</code></pre>
+
+<p><strong>Callbacks on destroy</strong></p>
+
+<pre><code>beforeDestroy: fn(criteria, cb)
+afterDestroy: fn(destroyedRecords, cb)
+</code></pre>
+
+<p>Consider the example:</p>
+
+<pre><code>    module.exports = {
+        attributes; {
+            firstName: 'string',
+            lastName: 'string',
+            estates: {
+                collection: 'estates',
+                via: 'owner'
+            }
+        },
+        afterDestroy: function(values, cb) {
+            //Write you cleanup code here...
+
+            cb();
+            }
+    }
+</code></pre>
+
+<p>To learn more about the lifecycle callbacks, see the <a href="http://sailsjs.org/#/documentation/concepts/ORM/Lifecyclecallbacks.html">official documentation</a>.</p>
+
+<h2>Controllers</h2>
+
+<p>The main logic of your application will be present in the controllers, the controllers are responsible for responding to the requests.
+Although, some magic is provided by Sails, using blueprints to create automatic CRUD API, often times it is not enough and you will want to add more functionality and more types of routes.</p>
+
+<p>Consider an example controller file name greeting.js:</p>
+
+<pre><code>    module.exports = {
+        hello: function(req, res) {
+                return res.send("Hello world");
+        },
+        hi: function(req, res) {
+                return res.send("hi user");
+        }
+    }
+</code></pre>
+
+<p>The above file contains two actions, namely <code>hello</code> and <code>hi</code>, inside these actions we can write the code to do whatever we want, in the above example we are sending messages, "hello world" and "hi user" respectively.</p>
+
+<p>Sails has automatic routing, so the controllers and actions that you have created will be routed automatically, by the following format <code>/:controller/:nameOfAction</code>.</p>
+
+<p>So routes for our above actions will be <code>/greeting/hello</code> and <code>/greeting/hi</code>.</p>
+
+<h3>Overriding blueprint actions</h3>
+
+<p>If you want override the blueprint actions, like create, update or delete, just create actions in the controller with that name and it will override the default functionality.
+Suppose we want override the <code>create</code> functionality for user, so in user controller, we will create an action having the name <code>create</code>.</p>
+
+<pre><code>module.exports = {
+        create: function(req, res) {
+                return res.send("Hello world");
+        }
+}
+</code></pre>
+
+<p>The above code overrides the create functionally, now if we send a http post request at url /user, instead of creating a new user it will send a response "Hello world".</p>
+
+<p>In the similar manner we can override the default behaviour by creating actions having the name <code>create</code>, <code>update  </code> and <code>delete</code>.</p>
+
+<h2>Policies</h2>
+
+<p>You don't want anyone accessing and performing unintended activity, like deleting all your real estates, so for that we have policies.
+If you are familiar with ExpressJS, polices are similar to ExpressJS middle-wares.
+The <a href="http://sailsjs.org/#/documentation/concepts/Policies">official SailsJS documentation</a> explains policies in great detail, be sure to head over there and read about it in details.</p>
+
+<h1>Conclusion</h1>
+
+<p>That's my take on SailsJS, it's a great framework to build apps in Node.JS.
+Let me know if you have any suggestions, questions about this in the comments.</p>
 
 
 <div class="well">
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
-      
-        <p><li><span>03 Sep 2014</span> - <a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></li></p>
       
         <p><li><span>12 Aug 2014</span> - <a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
       
@@ -291,6 +436,8 @@ Enjoy!</p>
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
       
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
+      
+        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
     </ul>
   </nav>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/introduction_to_sails_js.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/battery_revolution.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Better_API_Documentation.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/command_line_apps_in_node.js.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/mastering_webstrom.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Deadsimplescreensharing_overview.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/share_your_screen_(not_tab)_using_chromecast.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Executing_tasks_on_specific_dates_nodejs.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/AngularJS_Underscore_ultimate_web_development.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/An_app_every_programmer_must_use.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Handling_Custom_Tags_Using_Html.tagHandler().html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Peer_JS_Performace.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://blog.mohammedlakkadshaw.com/Android_as_display.html</loc>
+  <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://blog.mohammedlakkadshaw.com/Android_as_display.html</loc>
+    <lastmod>2014-09-03T19:07:57+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+</urlset>

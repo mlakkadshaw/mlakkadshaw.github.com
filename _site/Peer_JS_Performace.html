@@ -14,6 +14,7 @@
    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="/css/screen.css">
+   <link rel="stylesheet" href="/css/styles.css">
    <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-37269036-1']);
@@ -163,7 +164,7 @@ body {
 
    <!-- Twitter Bootstrap navbar -->
 
-    <div class="navbar navbar-fixed-top">
+    <!-- <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -178,17 +179,31 @@ body {
            <ul class="nav pull-right">
               <li><a href="/">Blog</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <!-- <li><a href="/lab.html">Lab</a></li> -->
+              <li><a href="http://mohammedlakkadshaw.com">Work</a></li>
             </ul>
-            <!-- form method="get" action="http://www.google.com/search" class="navbar-search pull-right">
-              <input type="text" name="q" class="span2 search-query" placeholder="Search" maxlength="255" value="">
-              <input name="sitesearch" type="hidden" value="">
-            </form -->
           </div>
         </div>
       </div>
+    </div> -->
+  
+  <div id="home-section" class= "container header-nav" style="position: fixed;background: white;z-index: 100;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.23); top:0; left:0;">
+    <div class= "row" style= "padding: 0; margin: 0 auto; display: inline;">
+      <div class= "span6" style= "padding-left: 0px;">
+        <h5 class= "company-name">
+        Mohammed Lakkadshaw <span style="color: #cbd3d8">& Co</span></h5>
+      </div>
+
+      <div class= "span6 navbar-button">
+        <a href="#" class= "header-buttons" id= "Home-active">Home</a>
+        <a href="#Work" class= "header-buttons " id= "Work-active">Work</a>
+        <a href="#openSource" class= "header-buttons " id= "OpenSource-active">Open Source</a>
+        <a href="#About" class= "header-buttons " id= "About-active" >About</a>
+        <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
+        <a href="#Contact" class= "header-buttons " id= "Contact-active">Contact</a>
+      </div>
+
     </div>
+  </div> -->
 
     <!-- Main content area -->
 
@@ -197,7 +212,7 @@ body {
         <header class="page-header">
    <!--        <h1>OneByOne </h1> -->
         </header>
-        <div class="row">
+        <div class="row" style="display: inline;">
           <div id="content" class="span9">
             <article>
   <header>
@@ -265,15 +280,15 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
     <h3>Related Posts</h3>
     <ul class="posts">
       
+        <p><li><span>03 Sep 2014</span> - <a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></li></p>
+      
+        <p><li><span>12 Aug 2014</span> - <a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
+      
         <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
       
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
       
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
-      
-        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
-      
-        <p><li><span>07 Oct 2013</span> - <a href="/share_your_screen_%28not_tab%29_using_chromecast.html">Share your entire screen using Chromecast</a></li></p>
       
     </ul>
   </nav>
@@ -308,20 +323,25 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
           </div>
           
           <nav class="span3">
-              <a href="/hire_me.html" class="button yellow">
+              <a href="http://mohammedlakkadshaw.com#Contact" class="button yellow">
                   Hire <br>Me
               </a>
             <hr />
           	<h3>Opensource Projects</h3>
           	<ol>
+              <li><a href="http://deadsimplewhiteboard.herokuapp.com">Dead Simple Whiteboard - Open Source, collaborative white-board.</a></li>
           		<li><a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen Sharing</a></li>
           	<!--	<li>Ken - News Reader for Programmers</li> -->
-          		<li><a href="http://vivid-dawn-7156.herokuapp.com/">Chatter - Private, dynamic and disposable group chats</a></li>
+          		<li><a href="http://deadsimplechat.com">Deadsimplechat - Private, dynamic and disposable group chats</a></li>
           		<li>Colloboard-Peer2Peer drawing board <small>(Comming soon)</small></li>
           	</ol>      
           	<hr />
             <h3>Recent Posts</h3>
             <div id="posts">
+              
+                <p><a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></p>
+              
+                <p><a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></p>
               
                 <p><a href="/Better_API_Documentation.html">Better API documentations</a></p>
               
@@ -339,10 +359,6 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
               
                 <p><a href="/An_app_every_programmer_must_use.html">An app every programmer must use</a></p>
               
-                <p><a href="/Handling_Custom_Tags_Using_Html.tagHandler%28%29.html">Handling custom tags in Android using Html.TagHandler()</a></p>
-              
-                <p><a href="/Peer_JS_Performace.html">PeerJS How does it work?</a></p>
-              
               <hr>
             </div>
 			<h3 id='about'>About</h3>
@@ -354,7 +370,7 @@ Still the thought of p2p connection is exiciting and I am wating for this new te
 				</p>
 			</div>
       <hr>  
-      <h3><a href="projects.html">View Recent Work</a></h3>  
+      <h3><a href="http://mohammedlakkadshaw.com">View Recent Work</a></h3>  
       <p>powered by <a href="https://github.com/mojombo/jekyll">jekyll</a></p>        
           </nav>
         </div>

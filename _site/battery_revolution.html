@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Share your entire screen using Chromecast</title>
+   <title>AngularJS + Underscore The ultimate web-development toolkit</title>
    <meta name="author" content="GitWatcher" />
 
    <!-- syntax highlighting CSS -->
@@ -217,7 +217,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/share_your_screen_%28not_tab%29_using_chromecast.html" rel="bookmark" title="Permanent link to ">Share your entire screen using Chromecast</a>
+      <a href="/battery_revolution.html" rel="bookmark" title="Permanent link to ">AngularJS + Underscore The ultimate web-development toolkit</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -227,7 +227,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October  7, 2013</time> - 
+        <time>August 12, 2014</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -242,39 +242,71 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p>Google's chrome cast allows you to bream content from your computer/phone to TV, and you can play youtube videos, music, etc. It allows also a really nice feature called as tab sharing, it allows you to share your Google chrome tab to the TV.
-But it doesn't allows you to share your whole screen, in the post I'll explain how you can do that.</p>
+  <p /><br /><p /><p>Before starting my latest web-development project I was looking for some robust javascript frameworks that I could use. I was familiar with AngularJS and I loved it, but it doesn't have a lot of utility methods and I was looking for some solution to solve that problem.</p>
 
-<h2>Things required</h2>
+<p>So, I thought about using underscoreJS, which is collection of utility methods with angularJS and I got myself a killer web development toolkit, in this blog post I have summed up underscoreJS methods which I find useful. visit <a href="http://underscorejs.org/#">underscorejs.org</a> to view all the available methods.</p>
 
-<ol>
-<li>Latest version of Google Chrome</li>
-<li>Chromecast</li>
-<li><a href="https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en">Google Cast extension</a> installed in google chrome</li>
-</ol>
+<h2>Using Underscore with Angular:</h2>
 
+<p>Combining angular and underscore is pretty straightforward, want you can do it add import underscore in your index.html, then add it as a service.</p>
 
-<h2>Procedure</h2>
-
-<ol>
-<li>Visit https://html5-demos.appspot.com/static/getusermedia/screenshare.html</li>
-<li>Click on "Capture your screen button"</li>
-<li>Click on Chromecast extension and share the current tab</li>
-<li>Minimise Google chrome and enjoy.</li>
-</ol>
+<script src="https://gist.github.com/mlakkadshaw/6850612.js"></script>
 
 
-<p>Now can see your screen, but you can also a white border which is not nice, and you can't get a full screen, to get past that you need to do a bit of extra work.</p>
+<p>And then we could inject it into our controllers:</p>
 
-<p>Download the <a href="https://dl.dropboxusercontent.com/u/4095659/server.zip">zip package</a> and extract it's contents, and install Node.JS if you don't have already.
-Then open terminal in mac or Command Prompt in windows and type "cd " and drag and drop the "server" folder into the terminal window.</p>
+<script src="https://gist.github.com/mlakkadshaw/6850655.js"></script>
 
-<p>Then run "sudo node app.js" and visit <strong>https://localhost</strong> (Note:It's <strong>https</strong> not http), Google Chrome will give you a warning, and you can safely ignore it, because the certificates which I have created for https to work are not verified by any recognised issuing authority.</p>
 
-<p>You'll now see your screen, now share this tab with chrome cast and minimise the Google chrome.
-Enjoy!</p>
+<h2>Useful Underscore methods:</h2>
 
-<p>If you have any questions, ask them in comments below.</p>
+<p>I have compiled a list of my favourite underscoreJS methods, you can always visit <a href="http://underscorejs.org/">underscorejs.org</a> to view all the methods that are available in underscore.</p>
+
+<h3>_.isUndefined:</h3>
+
+<p>This method is used to determine weather the specified value is undefined or not, I know you could always do <strong>typeof value === "undefined"</strong> to check weather it is undefined or not, but I find this neater.</p>
+
+<pre><code>    _.isUndefined(value)
+</code></pre>
+
+<h3>_.defaults:</h3>
+
+<p>This is also a very useful method, it allows you define a default values for something if they are not present.</p>
+
+<pre><code>var data = {"model":"T", "manufacturer": "Ford", "price": "200"};
+_.defaults(data, {"model":"N/A", "N/A": "Ford", "price": "0"})
+
+output: ---&gt; {"model":"T", "manufacturer": "Ford", "price": "200"}
+
+_.defaults({},{"model":"N/A", "N/A": "Ford", "price": "0"}) 
+output: ---&gt; {"model":"N/A", "N/A": "Ford", "price": "0"}
+</code></pre>
+
+<h3>_.where:</h3>
+
+<p>This method comes handy when you want to search something in the array of objects using some attributes present in the object.
+consider the example below.</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6850250.js"></script>
+
+
+<h3>_.uniq:</h3>
+
+<p>This method operates on arrays, and it removes duplicates in the array.
+Consider the following example:</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6850524.js"></script>
+
+
+<h3>_.pluck:</h3>
+
+<p>if you ever wanted to extract some values from an array of objects, well the pluck method let's to do that.
+Here is the example:</p>
+
+<script src="https://gist.github.com/mlakkadshaw/6bc81a35e33dbcfcc1bc.js"></script>
+
+
+<p>By merging these two awesome web development frameworks together we can get a pretty nice web development experience, as angular serves as an awesome MVC, and underscore provides a very useful collection of utility methods.</p>
 
 
 <div class="well">
@@ -284,13 +316,13 @@ Enjoy!</p>
       
         <p><li><span>03 Sep 2014</span> - <a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></li></p>
       
-        <p><li><span>12 Aug 2014</span> - <a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
-      
         <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
       
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
       
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
+      
+        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
     </ul>
   </nav>

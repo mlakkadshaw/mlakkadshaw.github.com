@@ -14,6 +14,7 @@
    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="/css/screen.css">
+   <link rel="stylesheet" href="/css/styles.css">
    <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-37269036-1']);
@@ -163,7 +164,7 @@ body {
 
    <!-- Twitter Bootstrap navbar -->
 
-    <div class="navbar navbar-fixed-top">
+    <!-- <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -179,16 +180,30 @@ body {
               <li><a href="/">Blog</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="http://mohammedlakkadshaw.com">Work</a></li>
-              <!-- <li><a href="/lab.html">Lab</a></li> -->
             </ul>
-            <!-- form method="get" action="http://www.google.com/search" class="navbar-search pull-right">
-              <input type="text" name="q" class="span2 search-query" placeholder="Search" maxlength="255" value="">
-              <input name="sitesearch" type="hidden" value="{{ site.domain }}">
-            </form -->
           </div>
         </div>
       </div>
+    </div> -->
+  
+  <div id="home-section" class= "container header-nav" style="position: fixed;background: white;z-index: 100;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.23); top:0; left:0;">
+    <div class= "row" style= "padding: 0; margin: 0 auto; display: inline;">
+      <div class= "span6" style= "padding-left: 0px;">
+        <h5 class= "company-name">
+        Mohammed Lakkadshaw <span style="color: #cbd3d8">& Co</span></h5>
+      </div>
+
+      <div class= "span6 navbar-button">
+        <a href="#" class= "header-buttons" id= "Home-active">Home</a>
+        <a href="#Work" class= "header-buttons " id= "Work-active">Work</a>
+        <a href="#openSource" class= "header-buttons " id= "OpenSource-active">Open Source</a>
+        <a href="#About" class= "header-buttons " id= "About-active" >About</a>
+        <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
+        <a href="#Contact" class= "header-buttons " id= "Contact-active">Contact</a>
+      </div>
+
     </div>
+  </div> -->
 
     <!-- Main content area -->
 
@@ -197,7 +212,7 @@ body {
         <header class="page-header">
    <!--        <h1>OneByOne {{ site.title }}</h1> -->
         </header>
-        <div class="row">
+        <div class="row" style="display: inline;">
           <div id="content" class="span9">
             {{ content }}
           </div>

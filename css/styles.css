@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url("./font/ProximaNova-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: url("./font/ProximaNova-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Proxima Nova Bold';
+    src: url("./font/ProximaNova-Bold.otf") format("opentype");
+}
+
+.container {
+	width: 100%;
+}
+
+.header-nav {
+	height: 80px;
+}
+
+.navbar-button a {
+	color: #cad8d9;
+}
+
+ .navbar-button .active {
+	color: black;
+	font-size: 15px;
+	/*color: #3F4346;*/
+	line-height: 27px;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+.company-name {
+	/*margin-left: 220px;*/ 
+	margin-top: 32px; 
+	margin-bottom: 32px; 
+	font-size: 21px; 
+	color: #3F4346;
+	line-height: 18px;
+	font-family: Proxima Nova;
+	
+}
+
+.header-buttons {
+	font-size: 15px;
+	color: #3F4346;
+	line-height: 27px;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+.row {
+	width: 960px; 
+	height: 100%;
+	/*margin: 0 auto;*/
+	margin-left: 220px;
+}
+
+.navbar-button {
+	text-align: right; 
+	padding-top: 26px; 
+	font-family: Proxima Nova; 
+	padding-right: 0px;
+}
+
+.banner {
+	background: url('../img/picture.jpg');
+	height: 906px;
+	background-size: cover; 
+	width: 100%;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+
+.banner .banner-tagline {
+	font-family: Proxima Nova Regular; 
+	font-size: 40px; 
+	text-align: center; 
+	line-height: 30px; 
+	color: white; 
+	margin: 0 auto; 
+	padding-top: 200px;
+	margin-bottom: 30px;
+}
+
+.banner .banner-tagline span {
+	font-size: 28px; 
+	font-weight: 100;
+}
+
+.banner .banner-button {
+	background-color: #13cd18;
+	border: 2px solid #25F12A;
+	border-radius: 20px;
+	/* height: 59px; */
+	/* width: 155px; */
+	/* margin-top: 47px; */
+	color: white;
+	font-family: Proxima Nova;
+	font-size: 15px;
+	line-height: 27px;
+	padding-top: 11px;
+	/* padding: 11px; */
+	padding-bottom: 11px;
+	padding-left: 50px;
+	padding-right: 50px;
+	text-decoration: none;
+}
+
+.row {
+	display: inline;
+}
