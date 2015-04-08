@@ -3,7 +3,7 @@
 <head>
 
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Dead Simple Screen sharing (DSS) - Overview</title>
+   <title>Mixpanel Tracking in AngularJS</title>
    <meta name="author" content="GitWatcher" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -257,7 +257,7 @@ body {
             <article>
   <header>
     <h2>
-      <a href="/Deadsimplescreensharing_overview.html" rel="bookmark" title="Permanent link to ">Dead Simple Screen sharing (DSS) - Overview</a>
+      <a href="/mixpanel_tracking_in_angularjs.html" rel="bookmark" title="Permanent link to ">Mixpanel Tracking in AngularJS</a>
     </h2>
     <h5>
         <!-- avatar><img 
@@ -267,7 +267,7 @@ body {
 		width="40"
 		height="40">
         </avatar -->
-        <time>October 10, 2013</time> - 
+        <time>April  8, 2015</time> - 
         <author>Mohammed Lakkadshaw</author>
     </h5>
   </header>
@@ -282,44 +282,70 @@ body {
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525120737188c41f"></script>
 <!-- AddThis Button END -->
 
-  <p /><br /><p /><p><strong>Grab source on <a href="https://github.com/mlakkadshaw/DeadSimpleScreeSharing">GitHub</a></strong></p>
+  <p /><br /><p /><p>For my recent angularJS application, I needed to integrate Mixpanel.
+I didn’t found any light-weight directives which I could include in the application that would allow me to easily track events using Mixpanel in the application, so I built Mixular.
+Mixualr is a lightweight angularJS directive which you can use to track events in your application.</p>
 
-<p><strong>Project <a href="http://deadsimplescreensharing.com">site</a></strong></p>
+<h2>Installation</h2>
 
-<p>Sometime ago a developed an open-source screen sharing application called as <a href="http://deadsimplescreensharing.com">DeadSimpleScreenSharing</a> which allows you to share your screen with anyone right from your browser.
-It requires you to install an extension, when you click "Share your Screen" button on that extension, it will gives you a unique url which you can share with any number of people, and they can view your screen.
-In this blog post I will give a brief overview on how this application works.</p>
+<p>You can install mixular via bower</p>
 
-<h3>The Extension:</h3>
+<pre><code>    bower install mixular
+</code></pre>
 
-<p>The DSS requires you to install an extension, a extension is required because there has to be some application running background which listens to tab changes and transmits this data to the server.
-The extension uses the chrome extension api's <strong>caputreVisibleTab()</strong> method get the visible tab and attaches <strong>mutationObservers</strong> and listen for DOM changes, when there is a change in the DOM, it transmits the data to the server via web sockets.</p>
+<p>Or you can clone the repo from <a href="https://github.com/mlakkadshaw/Mixular">Github</a></p>
 
-<h3>The Server:</h3>
+<h2>How to use it</h2>
 
-<p>The server is written in Javascript(node.js) and uses web sockets (socket.io), each session is namespace by unique id which is generate when the user presses the "Share your screen" button on the extension.
-The server just receives the data and forwards it to all the connected clients in that namespace.</p>
+<p>To use mixular in your application include the Mixpanel javascript tracking library, and the <code>angular-mixular-directive.js</code> in your index.html</p>
 
-<h3>Get it working locally:</h3>
+<p>Then add mixular dependency in your AngularJS application:</p>
 
-<p>If you want to run DSS locally, you need to have:
-1. Node.js installed
-2. Install express using 'npm install express'
-3. Install socket.io run 'npm install socket.io'
-and follow along the video.</p>
+<pre><code>var app = angular.module(“yourApp”, [“mixular-directive”]);
+</code></pre>
 
-<iframe width="840" height="520" src="//www.youtube.com/embed/-0ifc3SuZZk" frameborder="0" allowfullscreen></iframe>
+<p>Once you have added the dependency, you can start tracking events in your application, e.g:</p>
+
+<pre><code>&lt;a href=“#/feedback” mixular=“click” eventLabel=“Feedback Clicked” prop-user=“James”&gt;Feedback&lt;/a&gt;   
+</code></pre>
+
+<p>Add the property <code>mixular</code> and specify the events on which you want to trigger the tracking, supported event types are:</p>
+
+<ul>
+<li>click</li>
+<li>focus</li>
+<li>hover</li>
+<li>keydown</li>
+<li>keypress</li>
+<li>keyup</li>
+<li>mousedown</li>
+<li>mouseenter</li>
+<li>mouseleave</li>
+<li>mouseout</li>
+<li>mouseover</li>
+<li>mouseup</li>
+<li>scroll</li>
+<li>select</li>
+</ul>
 
 
+<p>The <code>eventLabel</code> can be used to specify a label for the event e.g “Banner Ad clicked”.</p>
 
+<h3>Passing properties</h3>
+
+<p>To pass multiple properties for a event you can type the keyword prop followed by the property name e.g <code>prop-product=“Laptop” prop-price=“500”</code></p>
+
+<h3>That’s all</h3>
+
+<p>If you have any questions or suggestions regarding the directive, leave them in the comment section below.</p>
+
+<p>Thanks</p>
 
 
 <div class="well">
   <nav id="related">
     <h3>Related Posts</h3>
     <ul class="posts">
-      
-        <p><li><span>08 Apr 2015</span> - <a href="/mixpanel_tracking_in_angularjs.html">Mixpanel Tracking in AngularJS</a></li></p>
       
         <p><li><span>03 Sep 2014</span> - <a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></li></p>
       
@@ -328,6 +354,8 @@ and follow along the video.</p>
         <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
       
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
+      
+        <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
       
     </ul>
   </nav>
