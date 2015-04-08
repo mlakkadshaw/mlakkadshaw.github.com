@@ -114,21 +114,35 @@
 	display: inline;
 }
 
+#mobile-menu-open {
+	display: none;
+}
+
 @media (min-width: 1200px){
 	.span9 {
 	  width: 764px;
 	}
+
+
 }
 
 @media (max-width: 1058px) {
 	.span9 {
 		 width: 100%;
 	}
+
+	.sidebar {
+		display: none;
+	}
 }
 
 @media (max-width: 978px) {
 	.navbar-button {
 		display: none;
+	}
+
+	#mobile-menu-open {
+		display: inline-block;
 	}
 
 	.company-name {

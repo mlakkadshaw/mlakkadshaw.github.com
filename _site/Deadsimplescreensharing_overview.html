@@ -12,6 +12,7 @@
 
    <!-- Twitter Bootstrap CSS -->
    <!-- link rel="stylesheet" href="/blog/css/bootstrap.min.css" type="text/css" media="screen, projection" / -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.0.4/css/jquery.mmenu.all.css">
    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="/css/screen.css">
@@ -157,6 +158,9 @@ body {
 }
 
 </style> 
+
+
+
 </head>
 
 <body>
@@ -188,7 +192,12 @@ body {
     </div> -->
   
   <div id="home-section" class= "container header-nav" style="position: fixed;background: white;z-index: 100;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.23); top:0; left:0;">
+   <a href="#mobile-menu" id='mobile-menu-open' style="float: left;">
+          <img style="  display: inline-block;margin-top: 31px;margin-left: 20px;float: left;" src="images/icon_menu_new.png" width="40px" alt="">
+        </a>
     <div class= "row" style= "padding: 0; margin: 0 auto; display: inline;">
+       
+
       <div class= "span6" style= "padding-left: 0px;">
         <a href="http://mohammedlakkadshaw.com">
                   <h5 class= "company-name">
@@ -197,6 +206,8 @@ body {
         </a>
 
       </div>
+    
+    
 
       <div class= "span6 navbar-button">
         <a href="http://mohammedlakkadshaw.com" class= "header-buttons" id= "Home-active">Home</a>
@@ -206,6 +217,30 @@ body {
         <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
         <a href="http://mohammedlakkadshaw.com#Contact" class= "header-buttons " id= "Contact-active">Contact</a>
       </div>
+ 
+
+      <nav id="mobile-menu">
+        <ul>
+          <li>
+            <a href="http://mohammedlakkadshaw.com" class= "header-buttons" id= "Home-active">Home</a>
+          </li>
+          <li>
+            <a href="http://mohammedlakkadshaw.com#Work" class= "header-buttons " id= "Work-active">Work</a>
+          </li>
+          <li>
+            <a href="http://mohammedlakkadshaw.com#openSource" class= "header-buttons " id= "OpenSource-active">Open Source</a>
+          </li>
+          <li>
+            <a href="http://mohammedlakkadshaw.com#About" class= "header-buttons " id= "About-active" >About</a>
+          </li>
+          <li>
+            <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
+          </li>
+          <li>
+            <a href="http://mohammedlakkadshaw.com#Contact" class= "header-buttons " id= "Contact-active">Contact</a>            
+          </li>
+       </ul>
+    </nav>
 
     </div>
   </div> 
@@ -418,7 +453,10 @@ and follow along the video.</p>
   </div> 
 
   <!-- End Main content area -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.0.4/js/jquery.mmenu.min.js"></script>
+  <script>
+    $("#mobile-menu").mmenu();
+  </script>
 </body>
 </html>
 
