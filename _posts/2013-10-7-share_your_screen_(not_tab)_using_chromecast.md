@@ -1,6 +1,7 @@
 ---
 title: Share your entire screen using Chromecast
 layout: post
+category: misc
 ---
 
 Google's chrome cast allows you to bream content from your computer/phone to TV, and you can play youtube videos, music, etc. It allows also a really nice feature called as tab sharing, it allows you to share your Google chrome tab to the TV.

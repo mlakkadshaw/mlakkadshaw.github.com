@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dead Simple Screen sharing (DSS) - Overview
+category: misc
 ---
 **Grab source on [GitHub](https://github.com/mlakkadshaw/DeadSimpleScreeSharing)**
 

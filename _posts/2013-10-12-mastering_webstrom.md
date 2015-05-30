@@ -1,6 +1,7 @@
 ---
 title: Mastering web-storm
 layout: post
+category: misc
 ---
 
 I am big fan of sublime text, and I use it extensively. Then I came across WebStorm, I like it and I want to learn more about it, because any craftsman should know how to use his tools effectively. 

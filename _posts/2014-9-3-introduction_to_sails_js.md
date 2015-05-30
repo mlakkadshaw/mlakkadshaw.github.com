@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Introduction to SalisJS
+category: nodejs
 ---
 
 I was looking for a Node.JS web framework for my project, and in my quest for finding the best framework, I stumbled across Sails.JS, and I have been using it for a few months now and it is pretty awesome at most of the part, so if you need something like Rails for Node.js, Sails is the way to go.

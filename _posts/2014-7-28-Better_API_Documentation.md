@@ -1,6 +1,7 @@
 ---
 title: Better API documentations
 layout: post
+category: misc
 ---
 
 [![image](http://imgs.xkcd.com/comics/rtfm.png)](http://xkcd.com/293/)

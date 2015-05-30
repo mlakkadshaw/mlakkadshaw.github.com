@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title>Mixpanel Tracking in AngularJS</title>
-   <meta name="author" content="GitWatcher" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mohammed Lakkadshaw" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
-   <!-- Twitter Bootstrap CSS -->
-   <!-- link rel="stylesheet" href="/blog/css/bootstrap.min.css" type="text/css" media="screen, projection" / -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.0.4/css/jquery.mmenu.all.css">
+
    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
-   <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+
    <link rel="stylesheet" type="text/css" href="/css/screen.css">
    <link rel="stylesheet" href="/css/styles.css">
    <script type="text/javascript">
@@ -30,230 +27,39 @@
   })();
 
 </script>
-
-<style type="text/css">
-	.menu {
-    	list-style: none;
-	}
-
-	.menu li {
-	    padding: 2px;
-	    font-size: 18px;
-	}
-
-  .button {
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-  text-transform: uppercase;
-  display: inline-block;
-  text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  padding-right: 50px;
-  margin: 10px;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  /*
-  Kinda replicates keyline but looks dumb.
-  @include filter(
-    drop-shadow(0 1px 0 rgba(blue, 0.2))
-    drop-shadow(0 -1px 0 rgba(blue, 0.2))
-  );
-  */
-}
-.button.blue {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a2d3e9), color-stop(100%, #7abedf));
-  background: -webkit-linear-gradient(top, #a2d3e9, #7abedf);
-  background: -moz-linear-gradient(top, #a2d3e9, #7abedf);
-  background: -o-linear-gradient(top, #a2d3e9, #7abedf);
-  background: linear-gradient(top, #a2d3e9, #7abedf);
-  box-shadow: -1px 0px 1px #6fadcb, 0px 1px 1px #54809d, -2px 1px 1px #6fadcb, -1px 2px 1px #54809d, -3px 2px 1px #6fadcb, -2px 3px 1px #54809d, -4px 3px 1px #6fadcb, -3px 4px 1px #54809d, -5px 4px 1px #6fadcb, -4px 5px 1px #54809d, -6px 5px 1px #6fadcb, -6px 7px 0 rgba(0, 0, 0, 0.05), -5px 8px 0 rgba(0, 0, 0, 0.05), -3px 9px 0 rgba(0, 0, 0, 0.04), -2px 10px 0 rgba(0, 0, 0, 0.04), -1px 11px 0 rgba(0, 0, 0, 0.03), 0px 12px 0 rgba(0, 0, 0, 0.03), 1px 13px 0 rgba(0, 0, 0, 0.02), 2px 14px 0 rgba(0, 0, 0, 0.02), 3px 15px 0 rgba(0, 0, 0, 0.01), 4px 16px 0 rgba(0, 0, 0, 0.01), 5px 17px 0 rgba(0, 0, 0, 0.01), 6px 18px 0 rgba(0, 0, 0, 0.01), inset 0 4px 5px -2px rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(0, 0, 0, 0.3);
-}
-.button.yellow {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2d851), color-stop(100%, #ecc92b));
-  background: -webkit-linear-gradient(top, #f2d851, #ecc92b);
-  background: -moz-linear-gradient(top, #f2d851, #ecc92b);
-  background: -o-linear-gradient(top, #f2d851, #ecc92b);
-  background: linear-gradient(top, #f2d851, #ecc92b);
-  color: black;
-  text-shadow: -2px 2px 0 rgba(255, 255, 255, 0.3);
-  box-shadow: -1px 0px 1px #d9b826, 0px 1px 1px #b1961d, -2px 1px 1px #d9b826, -1px 2px 1px #b1961d, -3px 2px 1px #d9b826, -2px 3px 1px #b1961d, -4px 3px 1px #d9b826, -3px 4px 1px #b1961d, -5px 4px 1px #d9b826, -4px 5px 1px #b1961d, -6px 5px 1px #d9b826, -6px 7px 0 rgba(0, 0, 0, 0.05), -5px 8px 0 rgba(0, 0, 0, 0.05), -3px 9px 0 rgba(0, 0, 0, 0.04), -2px 10px 0 rgba(0, 0, 0, 0.04), -1px 11px 0 rgba(0, 0, 0, 0.03), 0px 12px 0 rgba(0, 0, 0, 0.03), 1px 13px 0 rgba(0, 0, 0, 0.02), 2px 14px 0 rgba(0, 0, 0, 0.02), 3px 15px 0 rgba(0, 0, 0, 0.01), 4px 16px 0 rgba(0, 0, 0, 0.01), 5px 17px 0 rgba(0, 0, 0, 0.01), 6px 18px 0 rgba(0, 0, 0, 0.01), inset 0 4px 5px -2px rgba(255, 255, 255, 0.5), inset 0 1px 0 0 rgba(0, 0, 0, 0.3);
-}
-.button.yellow:after, .button.yellow:before {
-  background: black;
-}
-.button.yellow:after {
-  -webkit-filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-  -moz-filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-  filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-}
-.button.yellow:before {
-  -webkit-filter: drop-shadow(0 -2px 0 rgba(255, 255, 255, 0.35));
-  -moz-filter: drop-shadow(0 -2px 0 rgba(255, 255, 255, 0.35));
-  filter: drop-shadow(0 -2px 0 rgba(255, 255, 255, 0.35));
-}
-.button.yellow .arrow {
-  -webkit-filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-  -moz-filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-  filter: drop-shadow(-2px 0 0 rgba(255, 255, 255, 0.4));
-}
-.button:active {
-  box-shadow: none;
-  -webkit-transform: translate3d(-6px, 6px, 0);
-  -moz-transform: translate3d(-6px, 6px, 0);
-  -ms-transform: translate3d(-6px, 6px, 0);
-  -o-transform: translate3d(-6px, 6px, 0);
-  transform: translate3d(-6px, 6px, 0);
-}
-.button .arrow {
-  -webkit-filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-  -moz-filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-  filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-}
-.button:after {
-  -webkit-filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-  -moz-filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-  filter: drop-shadow(-2px 0 0 rgba(0, 0, 0, 0.2));
-}
-.button:after, .button:before {
-  position: absolute;
-  content: " ";
-  right: 15px;
-  top: 14px;
-  width: 6px;
-  height: 18px;
-  background: white;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  display: block;
-  z-index: 2;
-}
-.button:before {
-  height: 14px;
-  top: 26px;
-  right: 16px;
-  z-index: 3;
-  -webkit-transform: rotate(-137deg);
-  -moz-transform: rotate(-137deg);
-  -ms-transform: rotate(-137deg);
-  -o-transform: rotate(-137deg);
-  transform: rotate(-137deg);
-  -webkit-filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));
-  -moz-filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));
-  filter: drop-shadow(0 -2px 0 rgba(0, 0, 0, 0.15));
-}
-
-body {
-  padding: 50px;
-}
-
-</style> 
-
-
-
 </head>
 
 <body>
 
-  <div id="page">
-
-   <!-- Twitter Bootstrap navbar -->
-
-    <!-- <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-
-          <a class="brand" href"/">//ml</a>
-          <div class="nav-collapse">
-           <ul class="nav pull-right">
-              <li><a href="/">Blog</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="http://mohammedlakkadshaw.com">Work</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
   
-  <div id="home-section" class= "container header-nav" style="position: fixed;background: white;z-index: 100;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.23); top:0; left:0;">
-   <a href="#mobile-menu" id='mobile-menu-open' style="float: left;">
-          <img style="  display: inline-block;margin-top: 31px;margin-left: 20px;float: left;" src="images/icon_menu_new.png" width="40px" alt="">
-        </a>
-    <div class= "row" style= "padding: 0; margin: 0 auto; display: inline;">
-       
+    <div class="page_header" data-image="">
+      
+      <div class="page_header_top">
+          <a href="/">ML&CO | <span style="font-variant: small-caps;">blog</span></a>
 
-      <div class= "span6" style= "padding-left: 0px;">
-        <a href="http://mohammedlakkadshaw.com">
-                  <h5 class= "company-name">
-        Mohammed Lakkadshaw <span style="color: #cbd3d8">& Co</span>
-        </h5>
-        </a>
+          <div class="menu_items">
+            <a href="http://mohammedlakkadshaw.com/#openSource">OPEN SOURCE</a>
+            <a href="http://mohammedlakkadshaw.com">COMPANY</a>
+            <a href="http://mohammedlakkadshaw.com/work.html">ABOUT</a>
+            <a href="">CASE STUDIES</a>
+          </div>
+      </div>
+      
+      <div class="page_header_bottom">
+        <h1>Mixpanel Tracking in AngularJS </h1>     
+      <a class="subscribe_button">SUBSCRIBE</a>
 
       </div>
-    
-    
-
-      <div class= "span6 navbar-button">
-        <a href="http://mohammedlakkadshaw.com" class= "header-buttons" id= "Home-active">Home</a>
-        <a href="http://mohammedlakkadshaw.com#Work" class= "header-buttons " id= "Work-active">Work</a>
-        <a href="http://mohammedlakkadshaw.com#openSource" class= "header-buttons " id= "OpenSource-active">Open Source</a>
-        <a href="http://mohammedlakkadshaw.com#About" class= "header-buttons " id= "About-active" >About</a>
-        <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
-        <a href="http://mohammedlakkadshaw.com#Contact" class= "header-buttons " id= "Contact-active">Contact</a>
-      </div>
- 
-
-      <nav id="mobile-menu">
-        <ul>
-          <li>
-            <a href="http://mohammedlakkadshaw.com" class= "header-buttons" id= "Home-active">Home</a>
-          </li>
-          <li>
-            <a href="http://mohammedlakkadshaw.com#Work" class= "header-buttons " id= "Work-active">Work</a>
-          </li>
-          <li>
-            <a href="http://mohammedlakkadshaw.com#openSource" class= "header-buttons " id= "OpenSource-active">Open Source</a>
-          </li>
-          <li>
-            <a href="http://mohammedlakkadshaw.com#About" class= "header-buttons " id= "About-active" >About</a>
-          </li>
-          <li>
-            <a href="http://blog.mohammedlakkadshaw.com" class="header-buttons active">Blog</a>
-          </li>
-          <li>
-            <a href="http://mohammedlakkadshaw.com#Contact" class= "header-buttons " id= "Contact-active">Contact</a>            
-          </li>
-       </ul>
-    </nav>
 
     </div>
-  </div> 
+    
+    
+    
 
     <!-- Main content area -->
-
     <div class="container">
-      <div class="content">
-        <header class="page-header">
-   <!--        <h1>OneByOne </h1> -->
-        </header>
         <div class="row" style="display: inline;">
-          <div id="content" class="span9">
+          <div class="content span9">
             <article>
   <header>
     <h2>
@@ -349,13 +155,13 @@ Mixualr is a lightweight angularJS directive which you can use to track events i
       
         <p><li><span>03 Sep 2014</span> - <a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></li></p>
       
-        <p><li><span>12 Aug 2014</span> - <a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></li></p>
-      
         <p><li><span>28 Jul 2014</span> - <a href="/Better_API_Documentation.html">Better API documentations</a></li></p>
       
         <p><li><span>27 Jul 2014</span> - <a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></li></p>
       
         <p><li><span>12 Oct 2013</span> - <a href="/mastering_webstrom.html">Mastering web-storm</a></li></p>
+      
+        <p><li><span>10 Oct 2013</span> - <a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></li></p>
       
     </ul>
   </nav>
@@ -388,103 +194,36 @@ Mixualr is a lightweight angularJS directive which you can use to track events i
 </article>
 
           </div>
-          
-          <nav class="span3 sidebar">
-
-            <div class="well" style="padding: 10px;width: 300px;float: right; margin-right: -50px;"><a href="http://getdeployer.com" style="color: inherit; text-decoration: none;padding: 10px;">
-        <img src="/images/deployer.png" alt="" style="height: 60px;float: left;margin-right: 10px;">
-          <strong>Deployer, uploads your website, when you hit save.</strong>
-          </a><a href="http://getdeployer.com">
-          <h4>Download Free Beta.</h4>
-        </a>
-      </div>
-              <a href="http://mohammedlakkadshaw.com#Contact" class="button yellow">
-                  Hire <br>Me
-              </a>
-            <hr />
-          	<h3>Opensource Projects</h3>
-          	<ol>
-              <li><a href="http://deadsimplewhiteboard.herokuapp.com">Dead Simple Whiteboard - Open Source, collaborative white-board.</a></li>
-          		<li><a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen Sharing</a></li>
-          	<!--	<li>Ken - News Reader for Programmers</li> -->
-          		<li><a href="http://deadsimplechat.com">Deadsimplechat - Private, dynamic and disposable group chats</a></li>
-          		<li>Colloboard-Peer2Peer drawing board <small>(Comming soon)</small></li>
-          	</ol>      
-          	<hr />
-            <h3>Recent Posts</h3>
-            <div id="posts">
-              
-                <p><a href="/mixpanel_tracking_in_angularjs.html">Mixpanel Tracking in AngularJS</a></p>
-              
-                <p><a href="/introduction_to_sails_js.html">Introduction to SalisJS</a></p>
-              
-                <p><a href="/battery_revolution.html">AngularJS + Underscore The ultimate web-development toolkit</a></p>
-              
-                <p><a href="/Better_API_Documentation.html">Better API documentations</a></p>
-              
-                <p><a href="/command_line_apps_in_node.js.html">Building command line apps in Node.js</a></p>
-              
-                <p><a href="/mastering_webstrom.html">Mastering web-storm</a></p>
-              
-                <p><a href="/Deadsimplescreensharing_overview.html">Dead Simple Screen sharing (DSS) - Overview</a></p>
-              
-                <p><a href="/share_your_screen_(not_tab)_using_chromecast.html">Share your entire screen using Chromecast</a></p>
-              
-                <p><a href="/Executing_tasks_on_specific_dates_nodejs.html">Executing tasks (functions) on specific dates in Node.js</a></p>
-              
-                <p><a href="/AngularJS_Underscore_ultimate_web_development.html">AngularJS + Underscore The ultimate web-development toolkit</a></p>
-              
-              <hr>
-            </div>
-			<h3 id='about'>About</h3>
-			<div>
-				<p>
-					My name is Mohammed Lakkadshaw, I love developing web and mobile applications. 
-					I like to work on open-source projects in my free time. I also love reading and
-					playing video games. :)
-				</p>
-			</div>
-      <hr>  
-      <h3><a href="http://mohammedlakkadshaw.com">View Recent Work</a></h3>  
-      <p>powered by <a href="https://github.com/mojombo/jekyll">jekyll</a></p>        
-          </nav>
         </div>
-      </div>
-      <hr />
-      <footer>
-  <div class="row">
-    <div class="span10">
-    	<script type="text/javascript" src="js/jquery.js"></script>
-    	<script type="text/javascript" src="js/transit.js"></script>
-    	<script type="text/javascript">
-    	$(".menu li").hover(function() {
-    		$(this).transition({ "background-color": "orange", "color": "white", skewX: '30deg'},100);
-    	}, function() {
-    		$(this).transition({ "background-color": "white", "color": "black", skewX: '0' },100);
-
-    	});
-
-    	// setInterval(function() {
-    	// 	$('.brand')
-  			// 	.transition({ x: 140 })
-  			// 	.transition({ y: 40 })
-  			// 	.transition({ x: 0 })
-  			// 	.transition({ y: 0 });
-    	// }, 3000);
-    	</script>
-      <p class="Copyright 2011-2012">&copy; 2012 Mohammed Lakkadshaw</p>
-    </div>
+    </div> 
+  
+  <footer class="container">
+  <div class="subbanner">
+    Keep updated with the latest blog posts.
+  </div>
+  <div class="subscribe">
+    <input type="text" placeholder="Email Address" style="margin-bottom: 0;"/>
+    <a class="subscribe_button_click">Subscribe</a>
   </div>
 </footer>
 
-    </div> 
-  </div> 
-
   <!-- End Main content area -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.0.4/css/jquery.mmenu.all.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.0.4/js/jquery.mmenu.min.js"></script>
   <script>
     $("#mobile-menu").mmenu();
-  </script>
+  </script> -->
+<script src="/js/jquery.js"></script>
+  <script>
+  $(document).ready(function () {
+    var data = $(".page_header") .data();
+    if(!data.image) {
+      data.image = "/images/banner2.jpeg";
+    }
+
+    $(".page_header").css({"background-image":"url("+data.image+")", "background-size":"cover"})
+  })
+</script>
 </body>
 </html>
 

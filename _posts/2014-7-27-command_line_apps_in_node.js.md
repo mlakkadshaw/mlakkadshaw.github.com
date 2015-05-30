@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building command line apps in Node.js
+category: nodejs
 ---
 
 

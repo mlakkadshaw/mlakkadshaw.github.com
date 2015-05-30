@@ -1,6 +1,7 @@
 ---
 layout: post
 title: AngularJS + Underscore The ultimate web-development toolkit
+category: angularjs
 ---
 
 

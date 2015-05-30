@@ -1,6 +1,7 @@
 ---
 layout: post
 title: An app every programmer must use
+category: misc
 ---
 
 As a programmer I want be constantly updated with technologies/programming  languages I use, **I want to read tutorials, tips, best practices** and wanted to **know about new tools and frameworks that are coming**, and for that I was constantly asking people about best blogs / websites about Technology-X, and I was also very often bombarded with the questions like: *What are the best Python blogs?* or *What are the best ruby on rails blogs?* and *What's the best IDE for java development?* etc.

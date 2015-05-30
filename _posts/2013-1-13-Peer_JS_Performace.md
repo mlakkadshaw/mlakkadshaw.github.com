@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PeerJS How does it work?
-
+category: nodejs
 ---
 
 I was very excited about the latest Web RTC API's on Peer-To-Peer video calling and file transfer, and when I reading about these new API's I came accorss a awesome javascirpt plugin PeerJS, which allows to use the p2p data transfer easily.

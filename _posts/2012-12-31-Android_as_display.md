@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Use your Android Phone as a display for Raspberrypi
+category: android
 ---
 
 

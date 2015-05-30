@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mixpanel Tracking in AngularJS
+category: angularjs
 ---
 
 For my recent angularJS application, I needed to integrate Mixpanel.
