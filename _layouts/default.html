@@ -44,7 +44,7 @@
     </div>
 
     <div class="banner">
-      <a class="subscribe_button">SUBSCRIBE</a>
+      <a href="#mc_embed_signup" class="subscribe_button">SUBSCRIBE</a>
       <h1>Stay a while and listen.</h1>
     </div>
     {% else %}
@@ -63,7 +63,7 @@
       
       <div class="page_header_bottom">
         <h1>{{ page.title }} </h1>     
-      <a class="subscribe_button">SUBSCRIBE</a>
+      <a href="#mc_embed_signup" class="subscribe_button">SUBSCRIBE</a>
 
       </div>
 
@@ -76,6 +76,7 @@
         <a {% if page.list == 'nodejs' %} class='active' {% endif %}  href="/categories/nodejs">Node.js</a>
         <a {% if page.list == 'android' %} class='active' {% endif %}  href="/categories/android">Android</a>
         <a {% if page.list == 'misc' %} class='active' {% endif %}  href="/categories/misc">Miscellaneous</a>
+      
       </div>
       {% elsif page.list %}
        <div class="categories">
@@ -83,6 +84,8 @@
             <a {% if page.list == 'nodejs' %} class='active' {% endif %}  href="/categories/nodejs">Node.js</a>
             <a {% if page.list == 'android' %} class='active' {% endif %}  href="/categories/android">Android</a>
             <a {% if page.list == 'misc' %} class='active' {% endif %}  href="/categories/misc">Miscellaneous</a>
+        <a href="/"><i class="fa fa-close"></i>clear</a>
+
         </div>
     {% endif %}
 
@@ -107,13 +110,15 @@
   <script>
   $(document).ready(function () {
     var data = $(".page_header") .data();
-    if(!data.image) {
-      data.image = "/images/banner2.jpeg";
+    if(data) {
+      if(!data.image) {
+        data.image = "/images/banner2.jpeg";
+        $(".page_header").css({"background-image":"url("+data.image+")", "background-size":"cover"})
+      }
     }
-
-    $(".page_header").css({"background-image":"url("+data.image+")", "background-size":"cover"})
   })
 </script>
+
 </body>
 </html>
 
