@@ -201,6 +201,10 @@ p {
 	#mobile_menu {
 		display: inline-block;
 	}
+
+	.slicknav_menu {
+		display: block !important;
+	}
 }
 
 @media (max-width: 600px) {
@@ -242,6 +246,10 @@ p {
 	.header {
 		margin-bottom: 10px;
 	}
+}
+
+.slicknav_menu {
+	display: none;
 }
 
 .mobile_header {
