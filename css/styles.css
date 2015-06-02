@@ -246,6 +246,30 @@ p {
 	.header {
 		margin-bottom: 10px;
 	}
+
+	.subbanner {
+		display: none !important;
+	}
+
+	#mc_embed_signup {
+		width: 100% !important;
+	}
+
+	#mc_embed_signup input {
+		width: 96% !important;
+	}
+
+	.mobile_subs {
+		display: block !important;
+	  font-size: 20px;
+	  margin: 0;
+	  padding: 0;
+	  height: 37px;
+	}
+}
+
+.mobile_subs {
+	display: none;
 }
 
 .slicknav_menu {
