@@ -185,6 +185,75 @@ p {
 	.banner {
 		display: none;
 	}
+	
+	.subscribe_button {
+		display: none;
+	}
+
+	.content {
+		padding-left: 30px;
+	}
+
+	.menu_items {
+		display: none;
+	}
+
+	#mobile_menu {
+		display: inline-block;
+	}
+}
+
+@media (max-width: 600px) {
+	.categories {
+		display: none;
+	}
+	
+	.categories_mobile {
+		display: inline-block;
+	}
+
+	.content {
+		padding: 20px;
+	}
+
+	.page_header {
+		height: auto;
+		padding-bottom: 20px;
+	}
+	
+	.page_header h1 {
+		width: auto;
+	}
+
+	.page_header_bottom {
+		padding-top: 0px;
+	}
+
+	.mobile_header {
+		display: block !important;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.desktop_header {
+		display: none;
+	}
+
+	.header {
+		margin-bottom: 10px;
+	}
+}
+
+.mobile_header {
+	display: none;
+}
+
+.categories_mobile {
+	display: none;
+}
+
+#mobile_menu {
+	display: none;
 }
 
 footer.container {

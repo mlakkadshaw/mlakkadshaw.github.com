@@ -30,10 +30,20 @@
 </head>
 
 <body>
+  <!-- Mobile Menu -->
+  <ul id="mobile_menu">
+    <li><a href="http://mohammedlakkadshaw.com/#openSource">OPEN SOURCE</a></li>
+    <li><a href="http://mohammedlakkadshaw.com/#openSource">COMPANY</a></li>
+    <li><a href="http://mohammedlakkadshaw.com/work.html">ABOUT</a></li>
+    <li><a href="#">CASE STUDIES</a></li>
+  </ul>
+  <!-- End -->
 
   
     <div class="header">
-        <a href="/">ML&CO | <span style="font-variant: small-caps;">blog</span></a>
+        <a class='desktop_header' href="/">ML&CO | <span style="font-variant: small-caps;">blog</span></a>
+
+        <a class='mobile_header' href="/">Mohammed Lakkadshaw & Co | <span style="font-variant: small-caps;">blog</span></a>
 
         <div class="menu_items">
           <a href="http://mohammedlakkadshaw.com/#openSource">OPEN SOURCE</a>
@@ -47,6 +57,7 @@
       <a href="#mc_embed_signup" class="subscribe_button">SUBSCRIBE</a>
       <h1>Stay a while and listen.</h1>
     </div>
+
     
     
     
@@ -199,6 +210,12 @@
       }
     }
   })
+</script>
+
+<script src="css/nav/jquery.slicknav.min.js"></script>
+<link rel="stylesheet" href="css/nav/slicknav.min.css" />
+<script>
+    $('#mobile_menu').slicknav();
 </script>
 
 </body>
